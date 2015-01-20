@@ -61,7 +61,7 @@ tm.define("jsstg.JsstgScene", {
 
         //スコア表示ラベル
         var that = this;
-        var sc = this.scoreLabel = tm.display.OutlineLabel("SCORE: 0", 40)
+        var sc = this.scoreLabel = tm.display.OutlineLabel("SCORE: 0", 30)
             .addChildTo(this.systemBase)
             .setParam(this.labelParam);
         sc.update = function() {

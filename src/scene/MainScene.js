@@ -21,6 +21,7 @@ tm.define("jsstg.MainScene", {
     moveY: 0,
     beforeX: 0,
     beforeY: 0,
+    mouseON: false,
 
     //経過時間
     time: 0,
@@ -41,10 +42,7 @@ tm.define("jsstg.MainScene", {
 
         //マルチタッチ初期化
         this.touches = tm.input.TouchesEx(this);
-/*
-        this.mask = tm.display.Shape({width:SC_W, height:SC_H}).addChildTo(this).setPosition(SC_W*0.5, SC_H*0.5);
-        this.mask.renderRectangle({fillStyle: "rgba(0,0,0,1.0)", strokeStyle: "rgba(0,0,0,1.0)"});
-*/
+
         //レイヤー作成
         this.layers = [];
         for (var i = 0; i < LAYER_SYSTEM+1; i++) {
@@ -54,7 +52,7 @@ tm.define("jsstg.MainScene", {
         //プレイヤー
         this.player = jsstg.Player()
             .addChildTo(this)
-            .setPosition(SC_W*0.5, SC_H*0.5);
+            .setPosition(SC_W*0.2, SC_H*0.5);
         app.player = this.player;
 
         //システム表示ベース
@@ -96,6 +94,7 @@ tm.define("jsstg.MainScene", {
         if (this.touchID > 0)return;
         this.touchID = e.ID;
         this.player.jump();
+        this.mouseON = true;
     },
 
     //タッチorクリック移動処理
@@ -107,6 +106,7 @@ tm.define("jsstg.MainScene", {
     ontouchesend: function(e) {
         if (this.touchID != e.ID) return;
         this.touchID = -1;
+        this.mouseON = false;
     },
 
     //addChildオーバーライド

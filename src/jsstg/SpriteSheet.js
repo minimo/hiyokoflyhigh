@@ -58,13 +58,39 @@ jsstg.createSpriteSheet = function() {
                 frequency: 5,
             },
             "walk": {
-                frames:[15,16,17,16],
+                frames:[12,13,14,13],
                 next: "walk",
-                frequency: 5,
+                frequency: 10,
             },
         },
     });
-    
 };
+
+//アニメーションスプライト拡張
+tm.display.AnimationSprite.prototype.nowPlaying = "";
+tm.display.AnimationSprite.prototype.gotoAndPlay = function(name) {
+    name = (name !== undefined) ? name : "default";
+    this.nowPlaying = name;
+
+    this.paused = false;
+    this.currentAnimation = this.ss.animations[name];
+    this.currentFrame = 0;
+    this.currentFrameIndex = 0;
+    this._normalizeFrame();
+
+    return this;
+}
+tm.display.AnimationSprite.prototype.gotoAndStop = function(name) {
+    name = (name !== undefined) ? name : "default";
+    this.nowPlaying = name;
+
+    this.paused = true;
+    this.currentAnimation = this.ss.animations[name];
+    this.currentFrame = 0;
+    this.currentFrameIndex = 0;
+    this._normalizeFrame();
+
+    return this;
+}
 
 })();

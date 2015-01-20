@@ -19,22 +19,23 @@ tm.define("jsstg.Player", {
     mouseON: false, //マウス操作中フラグ
 
     isGround: false,    //地上にいるフラグ
+
     isStartup: false,   //スタート演出中
     isCollision: false, //当り判定有効フラグ
     isDemo: false,      //デモンストレーションフラグ
 
     timeMuteki: 0,  //無敵フレーム残り時間
 
-    gravity: 0.9,   //重力係数
+    gravity: 0.98,
+    velocityX: 0,
+    velocityY: 0,
 
     parentScene: null,
-
-    anim_fly: [1, 2, 3, 2],
-    anim_ground: [15, 16, 17, 16],
 
     init: function() {
         this.superInit(jsstg.SpriteSheet.player, 32, 32);
         this.setScale(2);
+        this.scaleX *= -1;
 
         //当り判定設定
         this.boundingType = "circle";
@@ -45,16 +46,32 @@ tm.define("jsstg.Player", {
         return this;
     },
     update: function() {
-        if (this.isGround) {
-        } else {
+        if (!this.isGround) {
+            this.y += this.velocityY;
+            if (this.parentScene.mouseON) {
+                this.velocityY += this.gravity;
+            } else {
+                this.velocityY += this.gravity;
+            }
+        }
+        
+        if (this.y > SC_H*0.9) {
+            this.y = SC_H*0.9;
+            this.gotoAndPlay("stop");
+            this.isGround = true;
         }
 
+        if (this.isGround) {
+            if (this.nowPlaying != "walk") this.gotoAndPlay("walk");
+        }
         this.time++;
     },
     //ジャンプ！
     jump: function() {
         if (!this.control) return;
-        this.vy += 10;
+        this.velocityY = -15;
+        this.isGround = false;
+        if (this.nowPlaying != "fly") this.gotoAndPlay("fly");
     },
     //死亡演出
     damage: function() {
