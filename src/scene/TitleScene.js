@@ -6,7 +6,7 @@
  */
  
 //タイトルシーン
-tm.define("tds.TitleScene", {
+tm.define("jsstg.TitleScene", {
     superClass: tm.app.Scene,
 
     init: function() {
@@ -18,7 +18,7 @@ tm.define("tds.TitleScene", {
         for (var i = 0; i < LAYER_SYSTEM+1; i++) {
             this.layers[i] = tm.app.Object2D().addChildTo(this);
         }
-        this.player = tds.Player().addChildTo(this);
+        this.player = jsstg.Player().addChildTo(this);
         this.player.setPosition(SC_W*0.5, SC_H*0.8);
         this.player.isDemo = true;
         app.player = this.player;
@@ -27,7 +27,7 @@ tm.define("tds.TitleScene", {
         this.mask.renderRectangle({fillStyle: "rgba(0,0,0,0.5)", strokeStyle: "rgba(0,0,0,0.1)"});
 
         //デモ用ステージデータ
-        this.stage = tds.Stage0();
+        this.stage = jsstg.Stage0();
 
         //タイトルロゴ
         var t1 = this.title1 = tm.display.OutlineLabel("BulletSimulator", 30).addChildTo(this);
@@ -71,20 +71,20 @@ tm.define("tds.TitleScene", {
 
     //敵ユニット単位の投入
     enterEnemyUnit: function(name) {
-        var unit = tds.enemyUnit[name];
+        var unit = jsstg.enemyUnit[name];
         if (unit === undefined)return;
 
         var len = unit.length;
         for (var i = 0; i < len; i++) {
             var e = unit[i];
-            tds.Enemy(e.name,e.x, e.y).addChildTo(this);
+            jsstg.Enemy(e.name,e.x, e.y).addChildTo(this);
         }
     },
 
     ontouchend: function() {
         app.background = "rgba(0, 0, 0, 0.8)";
         app.score = 0;
-        app.replaceScene(tds.MainScene());
+        app.replaceScene(jsstg.MainScene());
     },
 
     //addChildオーバーライド
@@ -98,7 +98,7 @@ tm.define("tds.TitleScene", {
     },
 });
 
-tm.define("tds.WaitScene", {
+tm.define("jsstg.WaitScene", {
     superClass: tm.app.Scene,
 
     init: function() {
@@ -106,7 +106,7 @@ tm.define("tds.WaitScene", {
     },
     update: function() {
         if (fontLoadEnd) {
-            app.replaceScene(tds.TitleScene());
+            app.replaceScene(jsstg.TitleScene());
         }
     },
 });

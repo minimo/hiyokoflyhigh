@@ -21,15 +21,13 @@ SC_W = 640;
 SC_H = 640;
 
 //レイヤー区分
-LAYER_SYSTEM = 10;           //システム表示
-LAYER_FOREGROUND = 9;       //フォアグラウンド
-LAYER_EFFECT_UPPER = 8;     //エフェクト上位
-LAYER_PLAYER = 8;           //プレイヤー
-LAYER_OBJECT_UPPER = 6;     //オブジェクト上位
-LAYER_BULLET = 5;           //弾    
-LAYER_SHOT = 4;             //ショット
-LAYER_OBJECT = 3;           //オブジェクト中間
-LAYER_OBJECT_LOWER = 2;     //オブジェクト下位
+LAYER_SYSTEM = 8;           //システム表示
+LAYER_FOREGROUND = 7;       //フォアグラウンド
+LAYER_EFFECT_UPPER = 6;     //エフェクト上位
+LAYER_PLAYER = 5;           //プレイヤー
+LAYER_BULLET = 4;           //ショット＆弾
+LAYER_SHOT = 3;           //ショット＆弾
+LAYER_OBJECT = 2;           //オブジェクト中間
 LAYER_EFFECT_LOWER = 1;     //エフェクト下位
 LAYER_BACKGROUND = 0;       //バックグラウンド
 

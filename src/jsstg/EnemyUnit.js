@@ -7,7 +7,7 @@
 (function() {
 
 //敵小隊単位定義
-tds.enemyUnit = {
+jsstg.enemyUnit = {
 
 "cube1-left": [
     { "name": "cube1", "x":SC_W*0.1, "y":-150 },

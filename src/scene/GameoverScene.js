@@ -6,7 +6,7 @@
  */
  
 //タイトルシーン
-tm.define("tds.GameoverScene", {
+tm.define("jsstg.GameoverScene", {
     superClass: tm.app.Scene,
 
     result1: "",
@@ -55,7 +55,7 @@ tm.define("tds.GameoverScene", {
         //ナインリープの場合はスコア登録画面へ
         tm.social.Nineleap.postRanking(app.score, this.result1+"("+this.result2+")");
 
-        app.replaceScene(tds.TitleScene());
+        app.replaceScene(jsstg.TitleScene());
     },
 });
 

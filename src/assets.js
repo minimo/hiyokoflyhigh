@@ -9,12 +9,11 @@
 //アセット一覧
 jsstg.assets = {
     //image
-    "player":   "assets/player.png",
+    "player":   "assets/hiyoco_nomal_full.png",
+    "egg":      "assets/hiyoco_egg.png",
+    "explode":  "assets/explode.png",
 
-    //Soud Effect
-    "explodeSmall": "assets/sen_ge_taihou03.mp3", 
-    "explodeLarge": "assets/sen_ge_hasai01.mp3", 
-    "explodePlayer": "assets/ta_ta_zuban_d01.mp3", 
+    //Sound Effect
 
     //Font
     "scoreboard": "font/scoreboard.ttf",

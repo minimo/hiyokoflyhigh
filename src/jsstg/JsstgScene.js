@@ -1,13 +1,13 @@
 /*
- *  MainScene.js
- *  2015/01/06
+ *  JsstgScene.js
+ *  2015/01/20
  *  @auther minimo  
  *  This Program is MIT license.
  *
  */
 (function() {
 
-tm.define("jsstg.MainScene", {
+tm.define("jsstg.JsstgScene", {
     superClass: tm.app.Scene,
 
     //マルチタッチ補助クラス
@@ -41,10 +41,7 @@ tm.define("jsstg.MainScene", {
 
         //マルチタッチ初期化
         this.touches = tm.input.TouchesEx(this);
-/*
-        this.mask = tm.display.Shape({width:SC_W, height:SC_H}).addChildTo(this).setPosition(SC_W*0.5, SC_H*0.5);
-        this.mask.renderRectangle({fillStyle: "rgba(0,0,0,1.0)", strokeStyle: "rgba(0,0,0,1.0)"});
-*/
+
         //レイヤー作成
         this.layers = [];
         for (var i = 0; i < LAYER_SYSTEM+1; i++) {

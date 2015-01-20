@@ -6,7 +6,7 @@
  */
 (function() {
 
-tds.bulletPattern = [];
+jsstg.bulletPattern = [];
 var $ = bulletml.dsl;
 
 $rank = 1;
@@ -37,10 +37,10 @@ var $fireBS = function(spd) { return $.fire($.direction(0), $.speed(spd) || $spd
 var $fireRS = function(spd) { return $.fire($.direction(0), $.speed(spd) || $spd, RS) };
 
 //no operation
-tds.bulletPattern["nop"] = new bulletml.Root({top: $.action([$.wait(10000)])});
+jsstg.bulletPattern["nop"] = new bulletml.Root({top: $.action([$.wait(10000)])});
 
 //Basic aim bullet
-tds.bulletPattern["basic-aim1"] = new bulletml.Root({
+jsstg.bulletPattern["basic-aim1"] = new bulletml.Root({
     top: $.action([
         $.wait(60),
         $.repeat(999, [
@@ -50,7 +50,7 @@ tds.bulletPattern["basic-aim1"] = new bulletml.Root({
     ]),
 });
 
-tds.bulletPattern["basic-aim2"] = new bulletml.Root({
+jsstg.bulletPattern["basic-aim2"] = new bulletml.Root({
     top: $.action([
         $.wait(60),
         $.repeat(999, [
@@ -109,7 +109,7 @@ var $whip = function(baseSpeed, delta, count, actionFunc) {
 };
 
 //cube1
-tds.bulletPattern["cube1"] = new bulletml.Root({
+jsstg.bulletPattern["cube1"] = new bulletml.Root({
     top: $.action([
         $.wait(60),
         $.repeat(999, [
@@ -120,7 +120,7 @@ tds.bulletPattern["cube1"] = new bulletml.Root({
 });
 
 //cube2
-tds.bulletPattern["cube2"] = new bulletml.Root({
+jsstg.bulletPattern["cube2"] = new bulletml.Root({
     top: $.action([
         $.wait(60),
         $.repeat(3, [
@@ -131,7 +131,7 @@ tds.bulletPattern["cube2"] = new bulletml.Root({
 });
 
 //square
-tds.bulletPattern["square1"] = new bulletml.Root({
+jsstg.bulletPattern["square1"] = new bulletml.Root({
     top1: $.action([
         $.wait(180),
         $.fire($.direction(  0), $spd(3), RL),
@@ -177,7 +177,7 @@ tds.bulletPattern["square1"] = new bulletml.Root({
 });
 
 //小型空中砲台
-tds.bulletPattern["triangle1-a"] = new bulletml.Root({
+jsstg.bulletPattern["triangle1-a"] = new bulletml.Root({
     top: $.action([
         $.wait(60),
         $.fire($.direction(180), $spd(4), BE),
@@ -187,7 +187,7 @@ tds.bulletPattern["triangle1-a"] = new bulletml.Root({
         ]),
     ]),
 });
-tds.bulletPattern["triangle1-b"] = new bulletml.Root({
+jsstg.bulletPattern["triangle1-b"] = new bulletml.Root({
     top: $.action([
         $.wait(60),
         $.fire($.direction(180), $spd(4), BE),
@@ -199,7 +199,7 @@ tds.bulletPattern["triangle1-b"] = new bulletml.Root({
 });
 
 //大型機
-tds.bulletPattern["triangle2"] = new bulletml.Root({
+jsstg.bulletPattern["triangle2"] = new bulletml.Root({
     top0: $.action([
         $.wait(60),
         $.repeat(999, [
@@ -229,7 +229,7 @@ tds.bulletPattern["triangle2"] = new bulletml.Root({
 });
 
 //square1-child
-tds.bulletPattern["square1-child"] = new bulletml.Root({
+jsstg.bulletPattern["square1-child"] = new bulletml.Root({
     top: $.action([
         $.wait(300),
         $.repeat(3, [
@@ -240,7 +240,7 @@ tds.bulletPattern["square1-child"] = new bulletml.Root({
 });
 
 //四畳半第一段階
-tds.bulletPattern["yojouhan-a-1"] = new bulletml.Root({
+jsstg.bulletPattern["yojouhan-a-1"] = new bulletml.Root({
     top1: $.action([
         $.wait(180),
         $.fire($.direction(0), $spd(3), RL),
@@ -281,7 +281,7 @@ tds.bulletPattern["yojouhan-a-1"] = new bulletml.Root({
 });
 
 //四畳半第二段階
-tds.bulletPattern["yojouhan-a-2"] = new bulletml.Root({
+jsstg.bulletPattern["yojouhan-a-2"] = new bulletml.Root({
     top1: $.action([
         $.wait(180),
         $.fire($.direction(0), $spd(3), RL),
@@ -307,7 +307,7 @@ tds.bulletPattern["yojouhan-a-2"] = new bulletml.Root({
 });
 
 //四畳半子機第一段階
-tds.bulletPattern["yojouhan-b-1"] = new bulletml.Root({
+jsstg.bulletPattern["yojouhan-b-1"] = new bulletml.Root({
     top: $.action([
         $.wait(300),
         $.repeat(3, [

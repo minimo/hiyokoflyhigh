@@ -45,7 +45,7 @@ tm.define("jsstg.Enemy", {
         this.param = param;
 
         this.name = name;
-        var d = this.data = tds.enemyData[name];
+        var d = this.data = jsstg.enemyData[name];
         if (!d) return false;
 
         this.def = d.def;
@@ -74,10 +74,10 @@ tm.define("jsstg.Enemy", {
         var bulletMLparams = {
             target: this.player,
             createNewBullet: function(runner, attr) {
-                tds.Bullet(runner, attr, this.id).addChildTo(this.parentScene);
+                jsstg.Bullet(runner, attr, this.id).addChildTo(this.parentScene);
             }.bind(this)
         };
-        this.startDanmaku(tds.bulletPattern[this.nowBulletPattern], bulletMLparams);
+        this.startDanmaku(jsstg.bulletPattern[this.nowBulletPattern], bulletMLparams);
 
         //当り判定設定
         this.boundingType = "rect";

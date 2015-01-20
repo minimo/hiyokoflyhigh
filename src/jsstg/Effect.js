@@ -4,12 +4,12 @@
  *  @auther minimo  
  *  This Program is MIT license.
  */
-tds.Effect = [];
+jsstg.Effect = [];
 
 (function() {
 
 //汎用パーティクル
-tm.define("tds.Effect.Particle", {
+tm.define("jsstg.Effect.Particle", {
     superClass: "tm.display.Shape",
     layer: LAYER_EFFECT_UPPER,
 
@@ -57,7 +57,7 @@ tm.define("tds.Effect.Particle", {
 });
 
 //オーラ用パーティクル
-tm.define("tds.Effect.Aura", {
+tm.define("jsstg.Effect.Aura", {
     superClass: "tm.display.Shape",
     layer: LAYER_EFFECT_UPPER,
 
@@ -116,7 +116,7 @@ tm.define("tds.Effect.Aura", {
 });
 
 //爆発用パーティクル
-tm.define("tds.Effect.BurnParticle", {
+tm.define("jsstg.Effect.BurnParticle", {
     superClass: "tm.display.Shape",
     layer: LAYER_EFFECT_UPPER,
 
@@ -165,7 +165,7 @@ tm.define("tds.Effect.BurnParticle", {
 });
 
 //敵弾消滅パーティクル
-tm.define("tds.Effect.BulletVanish", {
+tm.define("jsstg.Effect.BulletVanish", {
     superClass: "tm.display.Shape",
     layer: LAYER_EFFECT_UPPER,
 
@@ -233,7 +233,7 @@ tm.define("tds.Effect.BulletVanish", {
 });
 
 //衝撃波
-tm.define("tds.Effect.ShockWave", {
+tm.define("jsstg.Effect.ShockWave", {
     superClass: "tm.display.Shape",
     layer: LAYER_EFFECT_UPPER,
 
