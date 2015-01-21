@@ -62,7 +62,7 @@ tm.define("jsstg.Player", {
         }
 
         if (this.isGround) {
-            if (this.nowPlaying != "walk") this.gotoAndPlay("walk");
+            if (this.currentAnimationName != "walk") this.gotoAndPlay("walk");
         }
         this.time++;
     },
@@ -71,7 +71,7 @@ tm.define("jsstg.Player", {
         if (!this.control) return;
         this.velocityY = -15;
         this.isGround = false;
-        if (this.nowPlaying != "fly") this.gotoAndPlay("fly");
+        if (this.currentAnimationName != "fly") this.gotoAndPlay("fly");
     },
     //死亡演出
     damage: function() {

@@ -67,30 +67,18 @@ jsstg.createSpriteSheet = function() {
 };
 
 //アニメーションスプライト拡張
-tm.display.AnimationSprite.prototype.nowPlaying = "";
+tm.display.AnimationSprite.prototype.currentAnimationName = null;
+tm.display.AnimationSprite.prototype._gotoAndPlay = tm.display.AnimationSprite.prototype.gotoAndPlay;
+tm.display.AnimationSprite.prototype._gotoAndStop = tm.display.AnimationSprite.prototype.gotoAndStop;
 tm.display.AnimationSprite.prototype.gotoAndPlay = function(name) {
     name = (name !== undefined) ? name : "default";
-    this.nowPlaying = name;
-
-    this.paused = false;
-    this.currentAnimation = this.ss.animations[name];
-    this.currentFrame = 0;
-    this.currentFrameIndex = 0;
-    this._normalizeFrame();
-
-    return this;
+    this.currentAnimationName = name;
+    return this._gotoAndPlay(name);
 }
 tm.display.AnimationSprite.prototype.gotoAndStop = function(name) {
     name = (name !== undefined) ? name : "default";
-    this.nowPlaying = name;
-
-    this.paused = true;
-    this.currentAnimation = this.ss.animations[name];
-    this.currentFrame = 0;
-    this.currentFrameIndex = 0;
-    this._normalizeFrame();
-
-    return this;
+    this.currentAnimationName = name;
+    return this._gotoAndStop(name);
 }
 
 })();
