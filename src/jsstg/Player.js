@@ -92,26 +92,23 @@ tm.define("jsstg.Player", {
 });
 
 //開始時プレイヤーキャラクター
-tm.define("kumabang.Egg", {
+tm.define("jsstg.Egg", {
     superClass: "tm.display.AnimationSprite",
 
-    finished: false,
+    gravity: 0.98,
+    velocityX: 0,
+    velocityY: 0,
 
     init: function() {
         //親クラスの初期化
         this.superInit(jsstg.SpriteSheet.egg, 32, 32);
+        this.setScale(2);
+        this.scaleX *= -1;
+        this.tweener.move(SC_W*0.2, SC_H*0.9, 1500, "easeOutBounce")
+            .call(function() {
+                this.gotoAndPlay("enter");
+            }.bind(this));
     },
-    update: function() {
-        if (this.paused) {
-            this.remove();
-            this.finished = true;
-            this.player.visible = true;
-        }
-    },
-    
-    startup: function() {
-        this.tweener.clear().wait(300).moveBy(0, -20, 200, "easeOutQuint").moveBy(0, 20, 150, "easeOutQuint");
-    }
 });
 
 })();

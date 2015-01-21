@@ -57,8 +57,14 @@ tm.define("jsstg.MainScene", {
         //プレイヤー
         this.player = jsstg.Player()
             .addChildTo(this)
-            .setPosition(SC_W*0.2, SC_H*0.5);
+            .setPosition(SC_W*0.2, SC_H*0.9)
+            .setAlpha(0);
         app.player = this.player;
+
+        //プレイヤー投入演出用
+        this.egg = jsstg.Egg()
+            .addChildTo(this)
+            .setPosition(SC_W*0.2, SC_H*0.2);
 
         //システム表示ベース
         this.systemBase = tm.app.Object2D()
@@ -69,10 +75,13 @@ tm.define("jsstg.MainScene", {
         var that = this;
         var sc = this.scoreLabel = tm.display.OutlineLabel("SCORE: 0", 40)
             .addChildTo(this.systemBase)
+            .setPosition(10, 10)
             .setParam(this.labelParam);
         sc.update = function() {
             this.text = "SCORE: "+that.score;
         };
+
+        this.startup();
     },
 
     update: function() {
