@@ -49,7 +49,11 @@ tm.define("jsstg.Player", {
         if (!this.isGround) {
             this.y += this.velocityY;
             if (this.parentScene.mouseON) {
-                this.velocityY += this.gravity;
+                if (this.velocityY > 0) {
+                    this.velocityY = 3;
+                } else {
+                    this.velocityY += this.gravity;
+                }
             } else {
                 this.velocityY += this.gravity;
             }
