@@ -9,9 +9,11 @@
 //アセット一覧
 jsstg.assets = {
     //image
-    "player":   "assets/hiyoco_nomal_full.png",
+    "hiyoko":   "assets/hiyoco_nomal_full.png",
+    "niwatori": "assets/hiyoco_niwatori_full.png",
     "egg":      "assets/hiyoco_egg.png",
     "explode":  "assets/explode.png",
+    "bg":       "assets/bg.png",
 
     //Sound Effect
 

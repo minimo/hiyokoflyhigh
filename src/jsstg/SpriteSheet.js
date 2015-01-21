@@ -31,7 +31,7 @@ jsstg.createSpriteSheet = function() {
     });
 
     jsstg.SpriteSheet.player = tm.asset.SpriteSheet({
-        image: "player",
+        image: "hiyoko",
         frame: {
             width: 32,
             height: 32,

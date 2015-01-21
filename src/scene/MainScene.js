@@ -49,6 +49,11 @@ tm.define("jsstg.MainScene", {
             this.layers[i] = tm.app.Object2D().addChildTo(this);
         }
 
+        //バックグラウンド
+        tm.display.Sprite("bg", SC_W, SC_H)
+            .addChildTo(this.layers[LAYER_BACKGROUND])
+            .setPosition(SC_W*0.5, SC_H*0.5);
+
         //プレイヤー
         this.player = jsstg.Player()
             .addChildTo(this)
