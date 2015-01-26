@@ -109,6 +109,14 @@ tm.define("jsstg.Egg", {
                 this.gotoAndPlay("enter");
             }.bind(this));
     },
+    update: function() {
+    },
+    onanimationend: function() {
+        this.remove();
+        app.player
+            .gotoAndPlay("startup")
+            .setAlpha(1);
+    },
 });
 
 })();
