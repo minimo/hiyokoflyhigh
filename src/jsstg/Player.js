@@ -82,7 +82,7 @@ tm.define("jsstg.Player", {
     },
     //ショット
     enterShot: function() {
-        jsstg.ShotBullet(this.rotation, 5).addChildTo(this.parentScene).setPosition(this.x, this.y);
+        jsstg.ShotBullet(90, 5).addChildTo(this.parentScene).setPosition(this.x, this.y);
     },
     //プレイヤー投入時演出
     startup: function() {

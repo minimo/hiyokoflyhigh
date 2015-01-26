@@ -107,8 +107,9 @@ tm.define("jsstg.MainScene", {
     ontouchesstart: function(e) {
         if (this.touchID > 0)return;
         this.touchID = e.ID;
-        this.player.jump();
         this.mouseON = true;
+
+        this.player.jump();
     },
 
     //タッチorクリック移動処理
@@ -121,6 +122,8 @@ tm.define("jsstg.MainScene", {
         if (this.touchID != e.ID) return;
         this.touchID = -1;
         this.mouseON = false;
+
+        this.player.enterShot();
     },
 
     //addChildオーバーライド

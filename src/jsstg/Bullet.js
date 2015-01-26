@@ -103,19 +103,18 @@ tm.define("jsstg.Bullet", {
 });
 
 tm.define("jsstg.ShotBullet", {
-    superClass: "tm.display.Shape",
+    superClass: "tm.app.Object2D",
     layer: LAYER_SHOT,
     parentScene: null,
     player: null,
 
-    speed: 15,
+    speed: 5,
     power: 1,
-    defaultSpeed: 15,
+    defaultSpeed: 5,
     defaultPower: 1,
 
     init: function(rotation, power) {
         this.superInit({width: 32, height: 32});
-        this.canvas = jsstg.bulletGraphic["shot"];
 
         this.rotation = rotation || 0;
         this.speed = this.defaultSpeed;
@@ -127,6 +126,10 @@ tm.define("jsstg.ShotBullet", {
         rotation-=90;
         this.vx = Math.cos(rotation*toRad) * this.speed;
         this.vy = Math.sin(rotation*toRad) * this.speed;
+
+        this.sprite = tm.display.OutlineLabel("ピヨ", 20)
+            .addChildTo(this)
+            .setRotation(-this.rotation);
 
         //当り判定設定
         this.boundingType = "circle";
