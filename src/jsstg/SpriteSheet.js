@@ -62,6 +62,16 @@ jsstg.createSpriteSheet = function() {
                 next: "walk",
                 frequency: 10,
             },
+            "damage": {
+                frames:[4],
+                next: "damage",
+                frequency: 1,
+            },
+            "dawn": {
+                frames:[5],
+                next: "dawm",
+                frequency: 1,
+            },
         },
     });
 };
