@@ -45,14 +45,14 @@ tm.define("jsstg.MainScene", {
 
         //レイヤー作成
         this.layers = [];
+        this.layerBase = tm.app.Object2D().addChildTo(this);
         for (var i = 0; i < LAYER_SYSTEM+1; i++) {
-            this.layers[i] = tm.app.Object2D().addChildTo(this);
+            this.layers[i] = tm.app.Object2D().addChildTo(this.layerBase);
         }
 
         //バックグラウンド
-        tm.display.Sprite("bg", SC_W, SC_H)
-            .addChildTo(this.layers[LAYER_BACKGROUND])
-            .setPosition(SC_W*0.5, SC_H*0.5);
+        this.bg = jsstg.BackGround()
+            .addChildTo(this.layers[LAYER_BACKGROUND]);
 
         //プレイヤー
         this.player = jsstg.Player()
@@ -85,6 +85,12 @@ tm.define("jsstg.MainScene", {
     },
 
     update: function() {
+        if (this.player.currentAnimationName == "walk") {
+            this.bg.speed = 1;
+        } else {
+            this.bg.speed = 3;
+        }
+
     },
 
     //ゲーム開始演出
@@ -122,8 +128,6 @@ tm.define("jsstg.MainScene", {
         if (this.touchID != e.ID) return;
         this.touchID = -1;
         this.mouseON = false;
-
-        this.player.enterShot();
     },
 
     //addChildオーバーライド

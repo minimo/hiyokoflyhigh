@@ -14,7 +14,7 @@ tm.define("jsstg.Player", {
     height: 2,
 
     //状態フラグ
-    control: true,  //操作可能フラグ
+    control: false,  //操作可能フラグ
     shotON: true,   //ショットフラグ
     mouseON: false, //マウス操作中フラグ
 
@@ -76,6 +76,7 @@ tm.define("jsstg.Player", {
         this.velocityY = -15;
         this.isGround = false;
         if (this.currentAnimationName != "fly") this.gotoAndPlay("fly");
+        this.enterShot();
     },
     //死亡演出
     damage: function() {
@@ -116,6 +117,7 @@ tm.define("jsstg.Egg", {
         app.player
             .gotoAndPlay("startup")
             .setAlpha(1);
+        app.player.control = true;
     },
 });
 
