@@ -80,6 +80,9 @@ tm.define("jsstg.Player", {
     },
     //死亡演出
     damage: function() {
+        this.control = false;
+        this.velocityY = -15;
+        this.gotoAndPlay("damage");
     },
     //ショット
     enterShot: function() {
