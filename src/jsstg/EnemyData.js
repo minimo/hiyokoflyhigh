@@ -8,7 +8,7 @@
 jsstg.enemyData = [];
 
 //雑魚
-tm.define("jsstg.enemyData.zako", {
+tm.define("jsstg.enemyData.zako1", {
     superClass: "jsstg.Enemy",
 
     //使用弾幕パターン
@@ -27,30 +27,22 @@ tm.define("jsstg.enemyData.zako", {
     //表示レイヤー番号
     layer: LAYER_OBJECT,
 
-    //敵タイプ
-    type: ENEMY_SMALL,
+    init: function(x, y) {
+        this.superInit(x, y);
+    },
 
     setup: function() {
-        var colorparam = {
-            strokeStyle:"hsla(100, 50%, 70%, 1.0)",
-            fillStyle:  "hsla(100, 50%, 50%, 0.3)",
-            lineWidth: 1,
-        };
-        tm.display.Shape(16, 40).addChildTo(this).renderRectangle(colorparam);
-
-        this.tweener.moveBy(0, 300, 1000, "easeOutQuart").wait(1000).moveBy(0, -300, 3000).call(function(){this.remove();}.bind(this));
+        tm.display.AnimationSprite(jsstg.SpriteSheet.waru, 32, 32)
+            .addChildTo(this)
+            .setScale(2)
+            .gotoAndPlay("fly");
     },
 
     algorithm: function() {
-        //自機の方向を向く
-        var ax = this.x - this.player.x;
-        var ay = this.y - this.player.y;
-        var rad = Math.atan2(ay, ax);
-        var deg = ~~(rad * toDeg);
-        this.rotation = deg + 90;
+        this.x -= 1;
     },
 });
-jsstg.enemyData["zako"] = jsstg.enemyData.zako;
+jsstg.enemyData["zako1"] = jsstg.enemyData.zako1;
 
 
 })();

@@ -10,6 +10,8 @@ jsstg.SpriteSheet = {};
 
 //スプライトシート作成
 jsstg.createSpriteSheet = function() {
+
+    //スタートアップ用
     jsstg.SpriteSheet.egg = tm.asset.SpriteSheet({
         image: "egg",
         frame: {
@@ -30,6 +32,7 @@ jsstg.createSpriteSheet = function() {
         },
     });
 
+    //プレイヤー用
     jsstg.SpriteSheet.player = tm.asset.SpriteSheet({
         image: "hiyoko",
         frame: {
@@ -56,6 +59,70 @@ jsstg.createSpriteSheet = function() {
                 frames:[1,2,3,2],
                 next: "fly",
                 frequency: 5,
+            },
+            "walk": {
+                frames:[12,13,14,13],
+                next: "walk",
+                frequency: 10,
+            },
+            "damage": {
+                frames:[4],
+                next: "damage",
+                frequency: 1,
+            },
+            "dawn": {
+                frames:[5],
+                next: "dawm",
+                frequency: 1,
+            },
+        },
+    });
+
+    //敵１
+    jsstg.SpriteSheet.waru = tm.asset.SpriteSheet({
+        image: "waru",
+        frame: {
+            width: 32,
+            height: 32,
+            count: 18,
+        },
+        animations: {
+            "fly": {
+                frames:[1,2,3,2],
+                next: "fly",
+                frequency: 7,
+            },
+            "walk": {
+                frames:[12,13,14,13],
+                next: "walk",
+                frequency: 10,
+            },
+            "damage": {
+                frames:[4],
+                next: "damage",
+                frequency: 1,
+            },
+            "dawn": {
+                frames:[5],
+                next: "dawm",
+                frequency: 1,
+            },
+        },
+    });
+
+    //敵２
+    jsstg.SpriteSheet.mecha = tm.asset.SpriteSheet({
+        image: "mecha",
+        frame: {
+            width: 32,
+            height: 32,
+            count: 18,
+        },
+        animations: {
+            "fly": {
+                frames:[1,2,3,2],
+                next: "fly",
+                frequency: 7,
             },
             "walk": {
                 frames:[12,13,14,13],

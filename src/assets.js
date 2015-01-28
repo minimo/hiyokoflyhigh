@@ -11,6 +11,8 @@ jsstg.assets = {
     //image
     "hiyoko":   "assets/hiyoco_nomal_full.png",
     "niwatori": "assets/hiyoco_niwatori_full.png",
+    "waru":     "assets/hiyoco_waru_full.png",
+    "mecha":    "assets/hiyoco_mecha_full.png",
     "egg":      "assets/hiyoco_egg.png",
     "explode":  "assets/explode.png",
     "bg":       "assets/bg.png",

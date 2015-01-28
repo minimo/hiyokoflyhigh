@@ -38,49 +38,18 @@ tm.define("jsstg.Enemy", {
     beforeX: 0,
     beforeY: 0,
 
-    init: function(name, x, y, id, param) {
+    init: function(x, y, id) {
         this.superInit();
         this.setPosition(x, y);
         this.id = id || -1;
-        this.param = param;
-
-        this.name = name;
-        var d = this.data = jsstg.enemyData[name];
-        if (!d) return false;
-
-        this.def = d.def;
-        this.defMax = d.def;
-
-        this.width = d.width || 32;
-        this.height = d.height || 32;
-        this.layer = d.layer || LAYER_OBJECT;
-        this.point = d.point || 0;
-
-        if (d.setup) this.setup = d.setup;
-        if (d.algorithm) this.algorithm = d.algorithm;
-        if (d.dead) this.dead = d.dead;
-
-        this.bulletPattern = d.bulletPattern;
-        if (this.bulletPattern instanceof Array) {
-            this.nowBulletPattern = this.bulletPattern[0];
-        } else {
-            this.nowBulletPattern = this.bulletPattern;
-        }
 
         this.parentScene = app.currentScene;
         this.player = app.player;
-        this.setup(param);
-
-        var bulletMLparams = {
-            target: this.player,
-            createNewBullet: function(runner, attr) {
-                jsstg.Bullet(runner, attr, this.id).addChildTo(this.parentScene);
-            }.bind(this)
-        };
-        this.startDanmaku(jsstg.bulletPattern[this.nowBulletPattern], bulletMLparams);
 
         //当り判定設定
         this.boundingType = "rect";
+
+        this.setup();
 
         this.time = 0;
     },
@@ -151,7 +120,9 @@ tm.define("jsstg.Enemy", {
             app.score += this.data.point*pow;
 
             //得点表示
-            var sc = tm.display.OutlineLabel(this.data.point, 30).addChildTo(this.parentScene).setPosition(this.x, this.y);
+            var sc = tm.display.OutlineLabel(this.data.point, 30)
+                .addChildTo(this.parentScene)
+                .setPosition(this.x, this.y);
             sc.fontFamily = "scoreboard"; sc.align = "center"; sc.baseline  = "middle"; sc.fontWeight = 300; sc.outlineWidth = 2;
             sc.tweener.to({x: this.x, y: this.y-50, alpha:0}, 1000).call(function(){this.remove()}.bind(sc));
         }
@@ -171,9 +142,7 @@ tm.define("jsstg.Enemy", {
 
         var area = this.width*this.height;
         if (area < 1025) {
-            app.playSE("explodeSmall");
         } else {
-            app.playSE("explodeLarge");
         }
     },
 

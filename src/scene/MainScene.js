@@ -91,6 +91,11 @@ tm.define("jsstg.MainScene", {
             this.bg.speed = 3;
         }
 
+        if (this.time % 3000 == 0) {
+            jsstg.enemyData["zako1"](SC_W*1.1, SC_H*0.5).addChildTo(this);
+        }
+
+        this.time++;
     },
 
     //ゲーム開始演出
