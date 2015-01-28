@@ -26,7 +26,7 @@ tm.define("jsstg.Player", {
 
     timeMuteki: 0,  //無敵フレーム残り時間
 
-    gravity: 0.98,
+    gravity: 0.98*0.5,
     velocityX: 0,
     velocityY: 0,
 
@@ -73,7 +73,7 @@ tm.define("jsstg.Player", {
     //ジャンプ！
     jump: function() {
         if (!this.control) return;
-        this.velocityY = -15;
+        this.velocityY = -12;
         this.isGround = false;
         if (this.currentAnimationName != "fly") this.gotoAndPlay("fly");
         this.enterShot();
@@ -96,7 +96,7 @@ tm.define("jsstg.Player", {
 tm.define("jsstg.Egg", {
     superClass: "tm.display.AnimationSprite",
 
-    gravity: 0.98,
+    gravity: 0.98*0.5,
     velocityX: 0,
     velocityY: 0,
 
