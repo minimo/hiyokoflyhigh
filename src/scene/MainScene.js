@@ -77,8 +77,15 @@ tm.define("jsstg.MainScene", {
             .addChildTo(this.systemBase)
             .setPosition(10, 10)
             .setParam(this.labelParam);
+        sc.score = 0;
         sc.update = function() {
-            this.text = "SCORE: "+that.score;
+            this.text = "SCORE "+this.score;
+            if (this.score < that.score) {
+                var s = ~~((that.score-this.score)/5);
+                if (s < 3) s=3;
+                this.score += s;
+                if (this.score > that.score)this.score = that.score;
+            }
         };
 
         this.startup();

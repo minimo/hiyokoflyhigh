@@ -108,7 +108,7 @@ tm.define("jsstg.Enemy", {
             //スコア加算
             baunce++;
             var point = this.point * baunce;
-            app.score += point;
+            this.parentScene.score += point;
 
             //得点表示
             var sc = tm.display.OutlineLabel(point, 30)
