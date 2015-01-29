@@ -10,7 +10,7 @@
 tm.define("jsstg.BackGround", {
     superClass: tm.display.CanvasElement,
 
-    speed: 2,
+    speed: 1,
 
     bg1: null,
     bg2: null,

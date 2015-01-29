@@ -39,7 +39,8 @@ tm.define("jsstg.enemyData.zako1", {
     },
 
     algorithm: function() {
-        this.x -= 1;
+        var speed = this.parentScene.bg.speed;
+        this.x -= speed;
     },
 
     dead: function() {
@@ -48,11 +49,12 @@ tm.define("jsstg.enemyData.zako1", {
         this.remove();
 
         var sp = tm.display.Sprite("waru", 32, 32)
-            .addChildTo(app.currentScene)
+            .addChildTo(this.parentScene)
             .setPosition(this.x, this.y)
             .setScale(2)
             .setFrameIndex(4);
-        sp.vy = -8;
+        sp.vy = -10;
+        sp.layer = LAYER_EFFECT_LOWER;
         sp.update = function() {
             this.x += 1;
             this.y += this.vy;
