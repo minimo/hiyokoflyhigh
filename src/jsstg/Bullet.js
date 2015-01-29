@@ -113,23 +113,34 @@ tm.define("jsstg.ShotBullet", {
     defaultSpeed: 5,
     defaultPower: 1,
 
-    init: function(rotation, power) {
+    gravity: 0.98*0.5,
+    isBaunce: false,
+    numBaunce: 0,
+
+    init: function(power) {
         this.superInit({width: 32, height: 32});
 
-        this.rotation = rotation || 0;
+        this.rotation = 90;
         this.speed = this.defaultSpeed;
         this.power = power || this.defaultPower;
 
         this.alpha = 0.8;
         this.blendMode = "lighter";
 
-        rotation-=90;
+        var rotation = this.rotation-90;
         this.vx = Math.cos(rotation*toRad) * this.speed;
         this.vy = Math.sin(rotation*toRad) * this.speed;
 
-        this.sprite = tm.display.OutlineLabel("ピヨ", 20)
+        var str = "ピヨ";
+        if (power > 2) str = "コケコッコ"
+        this.sprite = tm.display.OutlineLabel(str, 20)
             .addChildTo(this)
-            .setRotation(-this.rotation);
+            .setRotation(-this.rotation-20)
+            .setScale(1.5);
+        this.sprite.tweener.clear()
+            .to({rotation: -this.rotation-20}, 200, "easeInOutSine")
+            .to({rotation: -this.rotation+20}, 200, "easeInOutSine")
+            .setLoop(true);
 
         //当り判定設定
         this.boundingType = "circle";
@@ -137,7 +148,7 @@ tm.define("jsstg.ShotBullet", {
 
         //威力により大きさと判定を変更
         if (power > 1) {
-            this.setScale(1.5);
+            this.setScale(2);
             this.radius = 20;
         }
 
@@ -148,29 +159,37 @@ tm.define("jsstg.ShotBullet", {
         this.x += this.vx;
         this.y += this.vy;
 
-        if (this.x<-20 || this.x>SC_W+20 || this.y<-20 || this.y>SC_H+20) {
-            this.remove();
+        if (this.x<-20 || this.x>SC_W+20 || this.y<-20 || this.y>SC_H+20) this.remove();
+
+        if (this.isBaunce) {
+            this.vy += this.gravity;
         }
 
-/*
         //敵との当り判定チェック
-        var s = [LAYER_OBJECT_UPPER, LAYER_OBJECT, LAYER_OBJECT_LOWER];
-        for (var i = 0; i < 3; i++) {
+        var s = [LAYER_OBJECT];
+        var len = s.length;
+        for (var i = 0; i < len; i++) {
             var layer = this.parentScene.layers[s[i]];
             layer.children.each(function(a) {
                 if (a === this.player) return;
                 if (this.parent && a.isCollision && a.isHitElement(this)) {
-                    a.damage(this.power);
-                    this.vanish();
-                    this.remove();
+                    a.damage(this.power, this.numBaunce);
+                    this.explode();
+                    this.baunce();
                     return;
                 }
             }.bind(this));
         }
-*/
     },
 
-    vanish: function() {
+    baunce: function() {
+        this.vy = -8;
+        this.vx = 3;
+        this.isBaunce = true;
+        this.numBaunce++;
+    },
+
+    explode: function() {
         for (var i = 0; i < 5; i++) {
             var p = jsstg.Effect.Particle(32, 1, 0.95).addChildTo(this.parentScene).setPosition(this.x, this.y);
             var x = rand(0, 30)-15;

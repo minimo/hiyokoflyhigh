@@ -7,7 +7,7 @@
 (function() {
 jsstg.enemyData = [];
 
-//雑魚
+//ワルひよこ
 tm.define("jsstg.enemyData.zako1", {
     superClass: "jsstg.Enemy",
 
@@ -19,10 +19,10 @@ tm.define("jsstg.enemyData.zako1", {
     height: 16,
 
     //耐久力
-    def: 3,
+    def: 1,
 
     //得点
-    point: 300,
+    point: 100,
 
     //表示レイヤー番号
     layer: LAYER_OBJECT,
@@ -43,6 +43,5 @@ tm.define("jsstg.enemyData.zako1", {
     },
 });
 jsstg.enemyData["zako1"] = jsstg.enemyData.zako1;
-
 
 })();

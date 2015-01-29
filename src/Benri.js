@@ -7,6 +7,7 @@
  
 var toRad = 3.14159/180;    //弧度法toラジアン変換
 var toDeg = 180/3.14159;    //ラジアンto弧度法変換
+var rand = function(min, max) { return mt.nextInt(min, max); };    //乱数発生
 
 //距離計算
 var distance = function(from, to) {

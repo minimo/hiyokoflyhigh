@@ -33,8 +33,6 @@ tm.define("jsstg.Enemy", {
     id: -1,
     param: null,
 
-    data: null,
-
     beforeX: 0,
     beforeY: 0,
 
@@ -96,7 +94,7 @@ tm.define("jsstg.Enemy", {
     algorithm: function() {
     },
 
-    damage: function(power) {
+    damage: function(power, baunce) {
         if (this.isMuteki || this.isDead) return;
         this.def -= power;
         if (this.def < 1) {
@@ -104,23 +102,16 @@ tm.define("jsstg.Enemy", {
             this.dead();
             this.parentScene.enemyKill++;
 
-            //弾消し
-            if (this.data.type == ENEMY_MIDDLE) {
-                this.parentScene.eraseBullet(this);
-            } else if (this.data.type == ENEMY_LARGE) {
-                this.parentScene.eraseBullet();
-                this.parentScene.timeVanish = 60;
-            }
-
             //親機に破壊を通知
             if (this.parentEnemy) this.parentEnemy.deadChild(this);
 
             //スコア加算
-            var pow = Math.clamp(this.player.level, 1, 10);
-            app.score += this.data.point*pow;
+            baunce++;
+            var point = this.point * baunce;
+            app.score += point;
 
             //得点表示
-            var sc = tm.display.OutlineLabel(this.data.point, 30)
+            var sc = tm.display.OutlineLabel(point, 30)
                 .addChildTo(this.parentScene)
                 .setPosition(this.x, this.y);
             sc.fontFamily = "scoreboard"; sc.align = "center"; sc.baseline  = "middle"; sc.fontWeight = 300; sc.outlineWidth = 2;
