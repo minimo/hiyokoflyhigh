@@ -32,7 +32,7 @@ tm.define("jsstg.enemyData.zako1", {
     },
 
     setup: function() {
-        tm.display.AnimationSprite(jsstg.SpriteSheet.waru, 32, 32)
+        this.sprite = tm.display.AnimationSprite(jsstg.SpriteSheet.waru, 32, 32)
             .addChildTo(this)
             .setScale(2)
             .gotoAndPlay("fly");
@@ -40,6 +40,27 @@ tm.define("jsstg.enemyData.zako1", {
 
     algorithm: function() {
         this.x -= 1;
+    },
+
+    dead: function() {
+        this.isCollision = false;
+        this.isDead = true;
+        this.remove();
+
+        var sp = tm.display.Sprite("waru", 32, 32)
+            .addChildTo(app.currentScene)
+            .setPosition(this.x, this.y)
+            .setScale(2)
+            .setFrameIndex(4);
+        sp.vy = -8;
+        sp.update = function() {
+            this.x += 1;
+            this.y += this.vy;
+            this.vy += 0.98*0.5;
+            if (this.y > SC_H+64) {
+                this.remove();
+            }
+        };
     },
 });
 jsstg.enemyData["zako1"] = jsstg.enemyData.zako1;

@@ -124,7 +124,6 @@ tm.define("jsstg.Enemy", {
         this.isCollision = false;
         this.isDead = true;
         this.tweener.clear();
-        this.stopDanmaku();
 
         this.on("enterframe", function() {
             this.alpha *= 0.9;
