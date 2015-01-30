@@ -189,12 +189,17 @@ tm.define("jsstg.ShotBullet", {
     },
 
     explode: function() {
+        jsstg.Effect.Explode()
+            .addChildTo(this.parentScene)
+            .setPosition(this.x, this.y);
+/*
         for (var i = 0; i < 5; i++) {
             var p = jsstg.Effect.Particle(32, 1, 0.95).addChildTo(this.parentScene).setPosition(this.x, this.y);
             var x = rand(0, 30)-15;
             var y = rand(0, 50)*-1;
             p.tweener.moveBy(x, y, 1000, "easeOutCubic");
         }
+*/
     },
 });
 
