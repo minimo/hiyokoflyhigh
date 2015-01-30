@@ -41,6 +41,7 @@ tm.define("jsstg.enemyData.zako1", {
     algorithm: function() {
         var speed = this.parentScene.bg.speed;
         this.x -= speed;
+        this.y += Math.sin(this.time*0.1)*2;
     },
 
     dead: function() {

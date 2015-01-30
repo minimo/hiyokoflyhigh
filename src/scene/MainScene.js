@@ -95,7 +95,7 @@ tm.define("jsstg.MainScene", {
         if (this.player.currentAnimationName == "walk") {
             this.bg.speed = 1;
         } else {
-            this.bg.speed = 2;
+            this.bg.speed = 1;
         }
 
         if (this.time % 300 == 0) {

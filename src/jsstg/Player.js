@@ -26,7 +26,6 @@ tm.define("jsstg.Player", {
 
     timeMuteki: 0,  //無敵フレーム残り時間
 
-    gravity: 0.98*0.5,
     velocityX: 0,
     velocityY: 0,
 
@@ -52,10 +51,10 @@ tm.define("jsstg.Player", {
                 if (this.velocityY > 0) {
                     this.velocityY = 3;
                 } else {
-                    this.velocityY += this.gravity;
+                    this.velocityY += GRAVITY;
                 }
             } else {
-                this.velocityY += this.gravity;
+                this.velocityY += GRAVITY;
             }
         }
         
@@ -99,7 +98,6 @@ tm.define("jsstg.Player", {
 tm.define("jsstg.Egg", {
     superClass: "tm.display.AnimationSprite",
 
-    gravity: 0.98*0.5,
     velocityX: 0,
     velocityY: 0,
 

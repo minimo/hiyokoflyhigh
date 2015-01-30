@@ -113,9 +113,8 @@ tm.define("jsstg.ShotBullet", {
     defaultSpeed: 5,
     defaultPower: 1,
 
-    gravity: 0.98*0.5,
-    isBaunce: false,
-    numBaunce: 0,
+    isBounce: false,
+    numBounce: 0,
 
     init: function(power) {
         this.superInit({width: 32, height: 32});
@@ -161,8 +160,8 @@ tm.define("jsstg.ShotBullet", {
 
         if (this.x<-20 || this.x>SC_W+20 || this.y<-20 || this.y>SC_H+20) this.remove();
 
-        if (this.isBaunce) {
-            this.vy += this.gravity;
+        if (this.isBounce) {
+            this.vy += GRAVITY;
         }
 
         //敵との当り判定チェック
@@ -173,20 +172,20 @@ tm.define("jsstg.ShotBullet", {
             layer.children.each(function(a) {
                 if (a === this.player) return;
                 if (this.parent && a.isCollision && a.isHitElement(this)) {
-                    a.damage(this.power, this.numBaunce);
+                    a.damage(this.power, this.numBounce);
                     this.explode();
-                    this.baunce();
+                    this.bounce();
                     return;
                 }
             }.bind(this));
         }
     },
 
-    baunce: function() {
+    bounce: function() {
         this.vy = -8;
         this.vx = 3;
-        this.isBaunce = true;
-        this.numBaunce++;
+        this.isBounce = true;
+        this.numBounce++;
     },
 
     explode: function() {

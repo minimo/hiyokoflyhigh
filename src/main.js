@@ -39,6 +39,9 @@ ENEMY_LARGE = 2;
 ENEMY_MBOSS = 3;
 ENEMY_BOSS = 4;
 
+//重力
+GRAVITY = 0.98*0.5
+
 //インスタンス
 app = {};
 

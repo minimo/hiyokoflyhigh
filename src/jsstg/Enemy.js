@@ -94,7 +94,7 @@ tm.define("jsstg.Enemy", {
     algorithm: function() {
     },
 
-    damage: function(power, baunce) {
+    damage: function(power, bounce) {
         if (this.isMuteki || this.isDead) return;
         this.def -= power;
         if (this.def < 1) {
@@ -106,8 +106,8 @@ tm.define("jsstg.Enemy", {
             if (this.parentEnemy) this.parentEnemy.deadChild(this);
 
             //スコア加算
-            baunce++;
-            var point = this.point * baunce;
+            bounce++;
+            var point = this.point * bounce;
             this.parentScene.score += point;
 
             //得点表示
