@@ -90,12 +90,13 @@ tm.define("jsstg.MainScene", {
 
         //パワーゲージ
         var color = "hsla({0}, 100%, 50%, 1.0)".format(300);
-        this.meter = tm.display.Shape(30, 200)
+        var width = 30, height = 300;
+        this.meter = tm.display.Shape(width, height)
             .addChildTo(this)
-            .setPosition(20, SC_H*0.8)
+            .setPosition(20, SC_H*0.5+height*0.5)
             .setOrigin(0.5, 1.0);
         this.meter.update = function() {
-            var limit = that.player.power*(200/100);
+            var limit = that.player.power*(height/100);
             var hsl = ~~(that.player.power*(120/100));
             var color = "hsla({0}, 100%, 50%, 1.0)".format(hsl);
 
@@ -109,9 +110,9 @@ tm.define("jsstg.MainScene", {
             c.fillRect(0, 200-limit, this.width, this.height-(200-limit));
             c.restore();
         }
-        tm.display.RectangleShape(30, 200, {fillStyle: "rgba(0,0,0,0)", strokeStyle: "Black", lineWidth: 3})
+        tm.display.RectangleShape(width, height, {fillStyle: "rgba(0,0,0,0)", strokeStyle: "Black", lineWidth: 3})
             .addChildTo(this)
-            .setPosition(20, SC_H*0.8)
+            .setPosition(20, SC_H*0.5+height*0.5)
             .setOrigin(0.5, 1.0);
 
         this.startup();
