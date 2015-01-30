@@ -88,6 +88,32 @@ tm.define("jsstg.MainScene", {
             }
         };
 
+        //パワーゲージ
+        var color = "hsla({0}, 100%, 50%, 1.0)".format(300);
+        this.meter = tm.display.Shape(30, 200)
+            .addChildTo(this)
+            .setPosition(20, SC_H*0.8)
+            .setOrigin(0.5, 1.0);
+        this.meter.update = function() {
+            var limit = that.player.power*(200/100);
+            var hsl = ~~(that.player.power*(120/100));
+            var color = "hsla({0}, 100%, 50%, 1.0)".format(hsl);
+
+            var c = this.canvas;
+            c.clear(0,0,30,200);
+            c.fillStyle = color;
+            c.strokeStyle = color;
+            c.lineWidth = 1;
+
+            var lw = Number(c.lineWidth);
+            c.fillRect(0, 200-limit, this.width, this.height-(200-limit));
+            c.restore();
+        }
+        tm.display.RectangleShape(30, 200, {fillStyle: "rgba(0,0,0,0)", strokeStyle: "Black", lineWidth: 3})
+            .addChildTo(this)
+            .setPosition(20, SC_H*0.8)
+            .setOrigin(0.5, 1.0);
+
         this.startup();
     },
 

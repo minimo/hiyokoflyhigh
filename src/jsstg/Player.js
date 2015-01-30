@@ -27,6 +27,8 @@ tm.define("jsstg.Player", {
 
     timeMuteki: 0,  //無敵フレーム残り時間
 
+    power: 0,
+
     velocityX: 0,
     velocityY: 0,
 
@@ -58,6 +60,8 @@ tm.define("jsstg.Player", {
         if (this.isGround && !this.isDead) {
             if (this.currentAnimationName != "walk") this.gotoAndPlay("walk");
         }
+        this.power+=1;
+        if (this.power > 100) this.power = 100;
         this.time++;
     },
     //ジャンプ！
@@ -78,6 +82,8 @@ tm.define("jsstg.Player", {
     },
     //ショット
     enterShot: function() {
+        if (this.power < 90) return;
+        this.power -= 90;
         jsstg.ShotBullet(1).addChildTo(this.parentScene).setPosition(this.x, this.y);
     },
     //プレイヤー投入時演出
