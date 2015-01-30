@@ -135,7 +135,7 @@ tm.define("jsstg.ShotBullet", {
         this.sprite = tm.display.OutlineLabel(str, 20)
             .addChildTo(this)
             .setRotation(-this.rotation-20)
-            .setScale(1.5);
+            .setScale(2);
         this.sprite.tweener.clear()
             .to({rotation: -this.rotation-20}, 200, "easeInOutSine")
             .to({rotation: -this.rotation+20}, 200, "easeInOutSine")

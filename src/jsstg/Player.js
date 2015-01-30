@@ -14,10 +14,11 @@ tm.define("jsstg.Player", {
     height: 2,
 
     //状態フラグ
-    control: false,  //操作可能フラグ
+    control: false, //操作可能フラグ
     shotON: true,   //ショットフラグ
     mouseON: false, //マウス操作中フラグ
 
+    isDead: false,      //やられた
     isGround: false,    //地上にいるフラグ
 
     isStartup: false,   //スタート演出中
@@ -38,7 +39,7 @@ tm.define("jsstg.Player", {
 
         //当り判定設定
         this.boundingType = "circle";
-        this.radius = 2;
+        this.radius = 6;
         this.checkHierarchy = true;
 
         this.time = 0;
@@ -57,21 +58,19 @@ tm.define("jsstg.Player", {
                 this.velocityY += GRAVITY;
             }
         }
-        
+
         if (this.y > SC_H*0.9) {
             this.y = SC_H*0.9;
-            this.gotoAndPlay("stop");
             this.isGround = true;
         }
-
-        if (this.isGround) {
+        if (this.isGround && !this.isDead) {
             if (this.currentAnimationName != "walk") this.gotoAndPlay("walk");
         }
         this.time++;
     },
     //ジャンプ！
     jump: function() {
-        if (!this.control) return;
+        if (!this.control || this.y < SC_H*0.1) return;
         this.velocityY = -12;
         this.isGround = false;
         if (this.currentAnimationName != "fly") this.gotoAndPlay("fly");
@@ -80,7 +79,9 @@ tm.define("jsstg.Player", {
     //死亡演出
     damage: function() {
         this.control = false;
-        this.velocityY = -15;
+        this.isCollision = false;
+        this.isDead = true;
+        this.velocityY = -10;
         this.gotoAndPlay("damage");
     },
     //ショット
@@ -119,6 +120,7 @@ tm.define("jsstg.Egg", {
             .gotoAndPlay("startup")
             .setAlpha(1);
         app.player.control = true;
+        app.player.isCollision = true;
     },
 });
 
