@@ -48,15 +48,7 @@ tm.define("jsstg.Player", {
     update: function() {
         if (!this.isGround) {
             this.y += this.velocityY;
-            if (this.parentScene.mouseON) {
-                if (this.velocityY > 0) {
-                    this.velocityY = 3;
-                } else {
-                    this.velocityY += GRAVITY;
-                }
-            } else {
-                this.velocityY += GRAVITY;
-            }
+            this.velocityY += GRAVITY/3;
         }
 
         if (this.y > SC_H*0.9) {
@@ -71,7 +63,7 @@ tm.define("jsstg.Player", {
     //ジャンプ！
     jump: function() {
         if (!this.control || this.y < SC_H*0.1) return;
-        this.velocityY = -12;
+        this.velocityY = -5;
         this.isGround = false;
         if (this.currentAnimationName != "fly") this.gotoAndPlay("fly");
         this.enterShot();
