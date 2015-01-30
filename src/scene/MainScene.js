@@ -34,6 +34,9 @@ tm.define("jsstg.MainScene", {
     //スコア
     score: 0,
 
+    //各種フラグ
+    isGameOver: false,
+
     background: "rgba(0, 100, 0, 1.0)",
     labelParam: {fontFamily: "misaki", align: "left", baseline: "top",outlineWidth: 3},
 
@@ -91,7 +94,7 @@ tm.define("jsstg.MainScene", {
         //パワーゲージ
         var color = "hsla({0}, 100%, 50%, 1.0)".format(300);
         var width = 30, height = 300;
-        this.meter = tm.display.Shape(width, height)
+        this.meter = tm.display.Shape({width:width, height:height})
             .addChildTo(this)
             .setPosition(20, SC_H*0.5+height*0.5)
             .setOrigin(0.5, 1.0);
@@ -110,7 +113,7 @@ tm.define("jsstg.MainScene", {
             c.fillRect(0, 200-limit, this.width, this.height-(200-limit));
             c.restore();
         }
-        tm.display.RectangleShape(width, height, {fillStyle: "rgba(0,0,0,0)", strokeStyle: "Black", lineWidth: 3})
+        tm.display.RectangleShape({width:width, height:height, fillStyle: "rgba(0,0,0,0)", strokeStyle: "Black", lineWidth: 3})
             .addChildTo(this)
             .setPosition(20, SC_H*0.5+height*0.5)
             .setOrigin(0.5, 1.0);
@@ -119,6 +122,7 @@ tm.define("jsstg.MainScene", {
     },
 
     update: function() {
+
         if (this.player.currentAnimationName == "walk") {
             this.bg.speed = 1;
         } else {
@@ -130,6 +134,25 @@ tm.define("jsstg.MainScene", {
             jsstg.enemyData["zako1"](SC_W*1.2, SC_H*0.55).addChildTo(this);
             jsstg.enemyData["zako1"](SC_W*1.3, SC_H*0.60).addChildTo(this);
             jsstg.enemyData["zako1"](SC_W*1.4, SC_H*0.65).addChildTo(this);
+        }
+
+        //ゲームオーバー判定
+        if (this.isGameOver) {
+            this.isGameOver = false;
+
+            var that = this;
+            var lb = tm.display.OutlineLabel("GAME OVER", 60)
+                .addChildTo(this)
+                .setPosition(SC_W*0.5, SC_H*0.5-SC_H);
+            lb.tweener
+                .wait(2000)
+                .move(SC_W*0.5, SC_H*0.5, 4000, "easeOutBounce")
+                .wait(3000)
+                .call(function() {
+                    this.remove();
+                    tm.social.Nineleap.postRanking(that.score, "SCORE:"+that.score);
+                    app.stop();
+                }.bind(lb));
         }
 
         this.time++;

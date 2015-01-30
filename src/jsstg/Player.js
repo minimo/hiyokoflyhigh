@@ -53,7 +53,7 @@ tm.define("jsstg.Player", {
             this.velocityY += GRAVITY/3;
         }
 
-        if (this.y > SC_H*0.9) {
+        if (this.y > SC_H*0.9 && !this.isDead) {
             this.y = SC_H*0.9;
             this.isGround = true;
         }
@@ -77,8 +77,9 @@ tm.define("jsstg.Player", {
         this.control = false;
         this.isCollision = false;
         this.isDead = true;
-        this.velocityY = -10;
+        this.velocityY = -5;
         this.gotoAndPlay("damage");
+        this.parentScene.isGameOver = true;
     },
     //ショット
     enterShot: function() {
