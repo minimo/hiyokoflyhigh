@@ -17,7 +17,11 @@ jsstg.assets = {
     "explode":  "assets/explode.png",
     "bg":       "assets/bg.png",
 
+    //bgm
+    "bgm":      "assets/game_maoudamashii_4_field04.mp3",
+
     //Sound Effect
+    "damage":   "assets/se_maoudamashii_magical06.mp3",
 
     //Font
     "scoreboard": "font/scoreboard.ttf",

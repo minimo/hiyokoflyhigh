@@ -160,6 +160,7 @@ tm.define("jsstg.MainScene", {
 
     //ゲーム開始演出
     startup: function() {
+        app.playBGM("bgm");
     },
 
     //敵ユニット単位の投入

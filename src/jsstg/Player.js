@@ -80,6 +80,7 @@ tm.define("jsstg.Player", {
         this.velocityY = -5;
         this.gotoAndPlay("damage");
         this.parentScene.isGameOver = true;
+        app.playSE("damage");
     },
     //ショット
     enterShot: function() {
