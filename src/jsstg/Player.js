@@ -87,6 +87,7 @@ tm.define("jsstg.Player", {
         if (this.power < 90) return;
         this.power -= 90;
         jsstg.ShotBullet(1).addChildTo(this.parentScene).setPosition(this.x, this.y);
+        app.playSE("piyo");
     },
     //プレイヤー投入時演出
     startup: function() {

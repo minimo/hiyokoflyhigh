@@ -22,7 +22,7 @@ jsstg.assets = {
 
     //Sound Effect
     "damage":   "assets/se_maoudamashii_magical06.mp3",
-
+    "piyo":     "assets/se_maoudamashii_voice_bird02.mp3",
     //Font
     "scoreboard": "font/scoreboard.ttf",
     "misaki":     "font/misaki_gothic.ttf",
