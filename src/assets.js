@@ -15,6 +15,8 @@ jsstg.assets = {
     "mecha":    "assets/hiyoco_mecha_full.png",
     "egg":      "assets/hiyoco_egg.png",
     "explode":  "assets/explode.png",
+    "cloud1":   "assets/cloud1.png", 
+    "cloud2":   "assets/cloud2.png", 
     "bg":       "assets/bg.png",
 
     //bgm
@@ -23,6 +25,7 @@ jsstg.assets = {
     //Sound Effect
     "damage":   "assets/se_maoudamashii_magical06.mp3",
     "piyo":     "assets/se_maoudamashii_voice_bird02.mp3",
+
     //Font
     "scoreboard": "font/scoreboard.ttf",
     "misaki":     "font/misaki_gothic.ttf",

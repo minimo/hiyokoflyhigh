@@ -123,12 +123,6 @@ tm.define("jsstg.MainScene", {
 
     update: function() {
 
-        if (this.player.currentAnimationName == "walk") {
-            this.bg.speed = 1;
-        } else {
-            this.bg.speed = 1;
-        }
-
         if (this.time % 300 == 0) {
             jsstg.enemyData["zako1"](SC_W*1.1, SC_H*0.50).addChildTo(this);
             jsstg.enemyData["zako1"](SC_W*1.2, SC_H*0.55).addChildTo(this);
