@@ -16,7 +16,7 @@ tm.define("jsstg.BackGround", {
     bg2: null,
 
     init: function() {
-            this.superInit();
+        this.superInit();
 
         //バックグラウンド
         this.bg1 = tm.display.Sprite("bg", SC_W*1.1, SC_H*1.1)
@@ -28,6 +28,11 @@ tm.define("jsstg.BackGround", {
             .setOrigin(0, 0)
             .setPosition(SC_W, -SC_H*0.1);
 
+        this.layers = [];
+        for (var i = 0; i < 11; i++) {
+            this.layers[i] = tm.app.Object2D().addChildTo(this);
+        }
+
         this.time = 0;
     },
 
@@ -38,16 +43,16 @@ tm.define("jsstg.BackGround", {
         if (this.bg2.x <= -SC_W) this.bg2.x = SC_W;
 
         if (this.time % 180 == 0) {
-            var x = SC_W*1.5;
-            var y = rand(0, SC_H*0.7);
-            var sc = rand(2,10)*0.1;
+            var sc = rand(2, 8);
             var kn = rand(1, 2);
+            var x = SC_W*1.5;
+            var y = SC_H*0.5-rand(SC_H*0.1, SC_H*sc*0.1);
             tm.display.Sprite("cloud"+kn)
-                .addChildTo(this)
+                .addChildTo(this.layers[sc])
                 .setPosition(SC_W*1.5, y)
-                .setScale(sc)
+                .setScale(sc*0.1)
                 .update = function() {
-                    this.x -= sc;
+                    this.x -= sc*0.2;
                 }
         }
         this.time++;

@@ -122,6 +122,7 @@ tm.define("jsstg.Egg", {
             .setAlpha(1);
         app.player.control = true;
         app.player.isCollision = true;
+        app.currentScene.bg.speed = 1;
     },
 });
 
