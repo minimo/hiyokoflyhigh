@@ -172,5 +172,29 @@ tm.display.AnimationSprite.prototype.gotoAndStop = function(name) {
     this.currentAnimationName = name;
     return this._gotoAndStop(name);
 }
+tm.display.AnimationSprite.prototype._normalizeFrame = function() {
+    var anim = this.currentAnimation;
+    if (anim) {
+        if (this.currentFrameIndex < anim.frames.length) {
+            this.currentFrame = anim.frames[this.currentFrameIndex];
+        }
+        else {
+            // dispatch animationend
+            var e = tm.event.Event("animationend");
+            e.animationName = this.currentAnimationName;
+            this.dispatchEvent(e);
+
+            if (anim.next) {
+                this.gotoAndPlay(anim.next);
+            }
+            else {
+                this.currentFrameIndex = anim.frames.length - 1;
+                this.currentFrame = anim.frames[this.currentFrameIndex];
+                this.paused = true;
+            }
+        }
+    }
+}
+
 
 })();
