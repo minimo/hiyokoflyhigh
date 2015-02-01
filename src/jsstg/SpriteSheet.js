@@ -72,8 +72,8 @@ jsstg.createSpriteSheet = function() {
             },
             "dawn": {
                 frames:[5],
-                next: "dawm",
-                frequency: 1,
+                next: "dawn",
+                frequency: 30,
             },
         },
     });
@@ -104,7 +104,7 @@ jsstg.createSpriteSheet = function() {
             },
             "dawn": {
                 frames:[5],
-                next: "dawm",
+                next: "dawn",
                 frequency: 1,
             },
         },
@@ -136,7 +136,7 @@ jsstg.createSpriteSheet = function() {
             },
             "dawn": {
                 frames:[5],
-                next: "dawm",
+                next: "dawn",
                 frequency: 1,
             },
         },

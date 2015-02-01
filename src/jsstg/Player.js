@@ -53,9 +53,13 @@ tm.define("jsstg.Player", {
             this.velocityY += GRAVITY/3;
         }
 
-        if (this.y > SC_H*0.9 && !this.isDead) {
+        if (this.y > SC_H*0.9) {
             this.y = SC_H*0.9;
             this.isGround = true;
+            if (this.isDead) {
+                this.gotoAndPlay("dawn");
+                app.currentScene.bg.speed = 0;
+            }
         }
         if (this.isGround && !this.isDead) {
             if (this.currentAnimationName != "walk") this.gotoAndPlay("walk");
