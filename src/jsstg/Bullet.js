@@ -116,6 +116,8 @@ tm.define("jsstg.ShotBullet", {
     isBounce: false,
     numBounce: 0,
 
+    labelParam: {fontFamily: "azukiP", align: "center", baseline: "middle",outlineWidth: 1},
+
     init: function(power) {
         this.superInit({width: 32, height: 32});
 
@@ -133,6 +135,7 @@ tm.define("jsstg.ShotBullet", {
         var str = "ピヨ";
         if (power > 2) str = "コケコッコ"
         this.sprite = tm.display.OutlineLabel(str, 20)
+            .setParam(this.labelParam)
             .addChildTo(this)
             .setRotation(-this.rotation-20)
             .setScale(2);
@@ -143,7 +146,7 @@ tm.define("jsstg.ShotBullet", {
 
         //当り判定設定
         this.boundingType = "circle";
-        this.radius = 12;
+        this.radius = 15;
 
         //威力により大きさと判定を変更
         if (power > 1) {
