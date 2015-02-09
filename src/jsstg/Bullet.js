@@ -174,7 +174,7 @@ tm.define("jsstg.ShotBullet", {
             var layer = this.parentScene.layers[s[i]];
             layer.children.each(function(a) {
                 if (a === this.player) return;
-                if (this.parent && a.isCollision && a.isHitElement(this)) {
+                if (this.parent && a.isCollision && !a.isMuteki && a.isHitElement(this)) {
                     a.damage(this.power, this.numBounce);
                     this.explode();
                     this.bounce();

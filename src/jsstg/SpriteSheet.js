@@ -141,6 +141,7 @@ jsstg.createSpriteSheet = function() {
             },
         },
     });
+
     //爆発
     jsstg.SpriteSheet.Explode = tm.asset.SpriteSheet({
         image: "explode",

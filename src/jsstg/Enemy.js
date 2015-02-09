@@ -24,6 +24,8 @@ tm.define("jsstg.Enemy", {
     isOnScreen: false,  //画面内に入った
     isGround: false,    //地上フラグ
 
+    mutekiTime: 0,
+
     //キャラクタ情報
     name: null,
     def: 0,
@@ -85,6 +87,16 @@ tm.define("jsstg.Enemy", {
             if (this.parentEnemy.isDead) this.dead();
         }
 
+        //無敵時処理
+        if (this.isMuteki) {
+            if (this.time % 10 == 0) this.visible = !this.visible;
+            this.mutekiTime--;
+            if (this.mutekiTime < 0) {
+                this.isMuteki = false;
+                this.visible = true;
+            }
+        }
+
         this.beforeX = this.x;
         this.beforeY = this.y;
         this.time++;
@@ -115,6 +127,10 @@ tm.define("jsstg.Enemy", {
                 .setPosition(this.x, this.y);
             sc.fontFamily = "scoreboard"; sc.align = "center"; sc.baseline  = "middle"; sc.fontWeight = 300; sc.outlineWidth = 2;
             sc.tweener.to({x: this.x, y: this.y-50, alpha:0}, 1000).call(function(){this.remove()}.bind(sc));
+        } else {
+            this.isMuteki = true;
+            this.mutekiTime = 60;
+            this.tweener.clear().moveBy(64, 0, 500, "easeOutBounce");
         }
     },
 
