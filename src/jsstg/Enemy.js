@@ -89,7 +89,7 @@ tm.define("jsstg.Enemy", {
 
         //無敵時処理
         if (this.isMuteki) {
-            if (this.time % 10 == 0) this.visible = !this.visible;
+            if (this.mutekiTime % 10 == 0) this.visible = !this.visible;
             this.mutekiTime--;
             if (this.mutekiTime < 0) {
                 this.isMuteki = false;
@@ -129,8 +129,8 @@ tm.define("jsstg.Enemy", {
             sc.tweener.to({x: this.x, y: this.y-50, alpha:0}, 1000).call(function(){this.remove()}.bind(sc));
         } else {
             this.isMuteki = true;
-            this.mutekiTime = 60;
-            this.tweener.clear().moveBy(64, 0, 500, "easeOutBounce");
+            this.mutekiTime = 59;
+            this.tweener.clear().moveBy(64, 0, 1000, "easeOutElastic");
         }
     },
 
