@@ -6,7 +6,12 @@
  */
 
 //乱数発生器
-var mt = new MersenneTwister(0);
+var mt  = new MersenneTwister(0);
+var rand  = function(min, max) { return mt.nextInt(min, max); };    //乱数発生
+
+//敵生成アルゴリズム用
+var mt2 = new MersenneTwister(256);
+var rand2 = function(min, max) { return mt2.nextInt(min, max); };   //乱数発生
 
 //フォント読み込み検出
 var fontLoadEnd = false;
