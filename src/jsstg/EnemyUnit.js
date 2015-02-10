@@ -13,7 +13,7 @@ jsstg.enemyUnit = [
     name: "waru1-1",
     rank: 0,
     time: 300,
-    warn: { "y":SC_H*0.50, param: {direction:0} },
+    warn: { "y":SC_H*0.50, "reverse":0 },
     enemies: [
         { "name": "waru1",   "x":SC_W*1.1, "y":SC_H*0.50 },
         { "name": "waru1",   "x":SC_W*1.2, "y":SC_H*0.55 },
@@ -24,7 +24,7 @@ jsstg.enemyUnit = [
     name: "waru1-2",
     rank: 0,
     time: 300,
-    warn: { "y":SC_H*0.50, param: {direction:0} },
+    warn: { "y":SC_H*0.50, "reverse":0 },
     enemies: [
         { "name": "waru1",   "x":SC_W*1.1, "y":SC_H*0.30 },
         { "name": "waru1",   "x":SC_W*1.3, "y":SC_H*0.40 },

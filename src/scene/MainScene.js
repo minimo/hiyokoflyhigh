@@ -173,13 +173,24 @@ tm.define("jsstg.MainScene", {
             return false;
         }
 
+        //抽出したユニットからランダムに一個指定
         var dice = rand2(0, units.length);
         var unit = units[dice];
+
+        //ユニット情報に基づいてから敵キャラを投入
         var len = unit.enemies.length;
         for (var i = 0; i < len; i++) {
             var e = unit.enemies[i];
             this.enterEnemy(e.name, e.x, e.y);
         }
+
+        //ワーニング表示処理
+        if (unit.warn) {
+            var warn = unit.warn;
+            jsstg.Effect.Warning(warn.directionm, warn.y).addChildTo(this);
+        }
+
+        //次の敵投入時間
         this.enterTime += unit.time;
     },
 
