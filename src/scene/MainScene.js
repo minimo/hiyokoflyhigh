@@ -26,6 +26,7 @@ tm.define("jsstg.MainScene", {
     //経過時間
     time: 0,
     absTime: 0,
+    enterTime: 300,
 
     //敵投入数と撃破数
     enemyCount: 0,
@@ -126,11 +127,9 @@ tm.define("jsstg.MainScene", {
 
     update: function() {
 
-        if (this.time % 300 == 0) {
-            jsstg.enemyData["waru1"](SC_W*1.1,  SC_H*0.50).addChildTo(this);
-            jsstg.enemyData["waru1"](SC_W*1.2,  SC_H*0.55).addChildTo(this);
-            jsstg.enemyData["mecha1"](SC_W*1.3, SC_H*0.60).addChildTo(this);
-            jsstg.enemyData["mecha1"](SC_W*1.4, SC_H*0.65).addChildTo(this);
+        //敵ユニット投入
+        if (this.time == this.enterTime) {
+            this.enterEnemyUnit();
         }
 
         //ゲームオーバー判定
@@ -162,9 +161,26 @@ tm.define("jsstg.MainScene", {
 
     //敵ユニット単位の投入
     enterEnemyUnit: function(name) {
+        //ランクに合うユニットを抽出
+        var units = [];
         var len = jsstg.enemyUnit.length;
         for (var i = 0; i < len; i++ ){
+            var unit = jsstg.enemyUnit[i];
+            if (unit.rank <= this.rank) units.push(unit);
         }
+        if (units.length == 0) {
+            this.enterTime += 300;
+            return false;
+        }
+
+        var dice = rand2(0, units.length);
+        var unit = units[dice];
+        var len = unit.enemies.length;
+        for (var i = 0; i < len; i++) {
+            var e = unit.enemies[i];
+            this.enterEnemy(e.name, e.x, e.y);
+        }
+        this.enterTime += unit.time;
     },
 
     //敵単体の投入
