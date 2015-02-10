@@ -71,10 +71,10 @@ tm.define("jsstg.Player", {
     //ジャンプ！
     jump: function() {
         if (!this.control || this.y < SC_H*0.1) return;
+        this.enterShot();
         this.velocityY = -5;
         this.isGround = false;
         if (this.currentAnimationName != "fly") this.gotoAndPlay("fly");
-        this.enterShot();
     },
     //死亡演出
     damage: function() {
@@ -88,7 +88,7 @@ tm.define("jsstg.Player", {
     },
     //ショット
     enterShot: function() {
-        if (this.power < 90) return;
+        if (this.power < 90 || this.isGround) return;
         this.power -= 90;
         jsstg.ShotBullet(1).addChildTo(this.parentScene).setPosition(this.x, this.y);
         app.playSE("piyo");
