@@ -38,10 +38,9 @@ tm.define("jsstg.Enemy", {
     beforeX: 0,
     beforeY: 0,
 
-    init: function(x, y, id) {
+    init: function(x, y, param) {
         this.superInit();
         this.setPosition(x, y);
-        this.id = id || -1;
 
         this.parentScene = app.currentScene;
         this.player = app.player;
@@ -49,20 +48,20 @@ tm.define("jsstg.Enemy", {
         //当り判定設定
         this.boundingType = "rect";
 
-        this.setup();
+        this.setup(param);
 
         this.time = 0;
     },
 
-    setup: function(name) {
-        var param = {
+    setup: function(param) {
+        var shapeParam = {
             width: 32,
             height: 32,
             strokeStyle:"hsla(0, 100%, 100%, 1.0)",
             fillStyle:  "hsla(0, 100%, 100%, 1.0)",
             lineWidth: 2,
         };
-        var sh = tm.display.Shape(param).addChildTo(this);
+        var sh = tm.display.Shape(shapeParam).addChildTo(this);
     },
 
     update: function() {

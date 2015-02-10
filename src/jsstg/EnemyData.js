@@ -31,7 +31,7 @@ tm.define("jsstg.enemyData.waru1", {
         this.superInit(x, y);
     },
 
-    setup: function() {
+    setup: function(param) {
         this.sprite = tm.display.AnimationSprite(jsstg.SpriteSheet.waru, 32, 32)
             .addChildTo(this)
             .setScale(2)
@@ -91,7 +91,7 @@ tm.define("jsstg.enemyData.mecha1", {
         this.superInit(x, y);
     },
 
-    setup: function() {
+    setup: function(param) {
         this.sprite = tm.display.AnimationSprite(jsstg.SpriteSheet.mecha, 32, 32)
             .addChildTo(this)
             .setScale(2)

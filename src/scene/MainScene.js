@@ -34,6 +34,9 @@ tm.define("jsstg.MainScene", {
     //スコア
     score: 0,
 
+    //ランク
+    rank: 0,
+
     //各種フラグ
     isGameOver: false,
 
@@ -124,8 +127,8 @@ tm.define("jsstg.MainScene", {
     update: function() {
 
         if (this.time % 300 == 0) {
-            jsstg.enemyData["waru1"](SC_W*1.1, SC_H*0.50).addChildTo(this);
-            jsstg.enemyData["waru1"](SC_W*1.2, SC_H*0.55).addChildTo(this);
+            jsstg.enemyData["waru1"](SC_W*1.1,  SC_H*0.50).addChildTo(this);
+            jsstg.enemyData["waru1"](SC_W*1.2,  SC_H*0.55).addChildTo(this);
             jsstg.enemyData["mecha1"](SC_W*1.3, SC_H*0.60).addChildTo(this);
             jsstg.enemyData["mecha1"](SC_W*1.4, SC_H*0.65).addChildTo(this);
         }
@@ -159,10 +162,15 @@ tm.define("jsstg.MainScene", {
 
     //敵ユニット単位の投入
     enterEnemyUnit: function(name) {
+        var len = jsstg.enemyUnit.length;
+        for (var i = 0; i < len; i++ ){
+        }
     },
 
     //敵単体の投入
     enterEnemy: function(name, x, y, param) {
+        if (!jsstg.enemyData[name]) return null;
+        jsstg.enemyData[name](x,  y, param).addChildTo(this);
     },
 
     //弾の消去

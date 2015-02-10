@@ -7,29 +7,21 @@
 (function() {
 
 //グループ定義
-jsstg.enemyUnit = {
+jsstg.enemyUnit = [
 
-"waru1-1": [
-    { "name": "cube1", "x":SC_W*0.1, "y":-150 },
-    { "name": "cube1", "x":SC_W*0.2, "y":-120 },
-    { "name": "cube1", "x":SC_W*0.3, "y":-130 },
-    { "name": "cube1", "x":SC_W*0.4, "y":-120 },
-],
+{
+    name: "waru1-1",
+    rank: 0,
+    warn: { "y":SC_H*0.50, param: {direction:0} },
+    unit: [
+        { "name": "waru1",   "x":SC_W*1.1, "y":SC_H*0.50 },
+        { "name": "waru1",   "x":SC_W*1.2, "y":SC_H*0.55 },
+        { "name": "waru1",   "x":SC_W*1.3, "y":SC_H*0.60 },
+        { "name": "waru1",   "x":SC_W*1.4, "y":SC_H*0.65 },
+    ]
+},
 
-"waru1-2": [
-    { "name": "cube1", "x":SC_W*0.6, "y":-110 },
-    { "name": "cube1", "x":SC_W*0.7, "y":-120 },
-    { "name": "cube1", "x":SC_W*0.8, "y":-100 },
-    { "name": "cube1", "x":SC_W*0.9, "y":-150 },
-],
+]
 
-"waru1-1": [
-    { "name": "cube1", "x":SC_W*0.1, "y":-150 },
-    { "name": "cube1", "x":SC_W*0.2, "y":-120 },
-    { "name": "cube1", "x":SC_W*0.3, "y":-130 },
-    { "name": "cube1", "x":SC_W*0.4, "y":-120 },
-],
-
-}
 
 })();
