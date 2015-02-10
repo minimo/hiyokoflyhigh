@@ -124,10 +124,10 @@ tm.define("jsstg.MainScene", {
     update: function() {
 
         if (this.time % 300 == 0) {
-            jsstg.enemyData["zako1"](SC_W*1.1, SC_H*0.50).addChildTo(this);
-            jsstg.enemyData["zako1"](SC_W*1.2, SC_H*0.55).addChildTo(this);
-            jsstg.enemyData["zako1"](SC_W*1.3, SC_H*0.60).addChildTo(this);
-            jsstg.enemyData["zako2"](SC_W*1.4, SC_H*0.65).addChildTo(this);
+            jsstg.enemyData["waru1"](SC_W*1.1, SC_H*0.50).addChildTo(this);
+            jsstg.enemyData["waru1"](SC_W*1.2, SC_H*0.55).addChildTo(this);
+            jsstg.enemyData["mecha1"](SC_W*1.3, SC_H*0.60).addChildTo(this);
+            jsstg.enemyData["mecha1"](SC_W*1.4, SC_H*0.65).addChildTo(this);
         }
 
         //ゲームオーバー判定

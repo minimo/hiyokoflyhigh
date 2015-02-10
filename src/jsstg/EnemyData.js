@@ -7,8 +7,8 @@
 (function() {
 jsstg.enemyData = [];
 
-//ワルひよこ
-tm.define("jsstg.enemyData.zako1", {
+//ワルひよこ１
+tm.define("jsstg.enemyData.waru1", {
     superClass: "jsstg.Enemy",
 
     //使用弾幕パターン
@@ -65,10 +65,10 @@ tm.define("jsstg.enemyData.zako1", {
         };
     },
 });
-jsstg.enemyData["zako1"] = jsstg.enemyData.zako1;
+jsstg.enemyData["waru1"] = jsstg.enemyData.waru1;
 
-//メカひよこ
-tm.define("jsstg.enemyData.zako2", {
+//メカひよこ１
+tm.define("jsstg.enemyData.mecha1", {
     superClass: "jsstg.Enemy",
 
     //使用弾幕パターン
@@ -125,6 +125,6 @@ tm.define("jsstg.enemyData.zako2", {
         };
     },
 });
-jsstg.enemyData["zako2"] = jsstg.enemyData.zako2;
+jsstg.enemyData["mecha1"] = jsstg.enemyData.mecha1;
 
 })();
