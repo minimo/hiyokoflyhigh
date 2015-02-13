@@ -96,12 +96,6 @@ tm.define("jsstg.enemyData.waru2", {
             .addChildTo(this)
             .setScale(2)
             .gotoAndPlay("fly");
-
-        //Tweenerでアルゴリズム記述
-        this.tweener.clear()
-            .moveBy(-SC_W*0.5, 0, 3000)
-            .moveBy(0, SC_H*0.2, 2000)
-            .moveBy(-SC_W*0.8, 0, 4000);
     },
 
     algorithm: function() {
