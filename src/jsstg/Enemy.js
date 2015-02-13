@@ -86,6 +86,13 @@ tm.define("jsstg.Enemy", {
             if (this.parentEnemy.isDead) this.dead();
         }
 
+        //進行方向を向く
+        if (this.x < this.beforeX) {
+            this.scaleX = 1;
+        } else {
+            this.scaleX = -1;
+        }
+
         //無敵時処理
         if (this.isMuteki) {
             if (this.mutekiTime % 10 == 0) this.visible = !this.visible;

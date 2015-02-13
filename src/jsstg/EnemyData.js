@@ -67,6 +67,70 @@ tm.define("jsstg.enemyData.waru1", {
 });
 jsstg.enemyData["waru1"] = jsstg.enemyData.waru1;
 
+//ワルひよこ１
+tm.define("jsstg.enemyData.waru2", {
+    superClass: "jsstg.Enemy",
+
+    //使用弾幕パターン
+    bulletPattern: "cube1",
+
+    //当り判定サイズ
+    width:  16,
+    height: 16,
+
+    //耐久力
+    def: 1,
+
+    //得点
+    point: 100,
+
+    //表示レイヤー番号
+    layer: LAYER_OBJECT,
+
+    init: function(x, y) {
+        this.superInit(x, y);
+    },
+
+    setup: function(param) {
+        this.sprite = tm.display.AnimationSprite(jsstg.SpriteSheet.waru, 32, 32)
+            .addChildTo(this)
+            .setScale(2)
+            .gotoAndPlay("fly");
+
+        //Tweenerでアルゴリズム記述
+        this.tweener.clear()
+            .moveBy(-SC_W*0.5, 0, 3000)
+            .moveBy(0, SC_H*0.2, 2000)
+            .moveBy(-SC_W*0.8, 0, 4000);
+    },
+
+    algorithm: function() {
+    },
+
+    dead: function() {
+        this.isCollision = false;
+        this.isDead = true;
+        this.remove();
+
+        var sp = tm.display.Sprite("waru", 32, 32)
+            .addChildTo(this.parentScene)
+            .setPosition(this.x, this.y)
+            .setScale(2)
+            .setFrameIndex(4);
+        sp.vy = -10;
+        sp.layer = LAYER_EFFECT_LOWER;
+        sp.update = function() {
+            this.x += 1;
+            this.y += this.vy;
+            this.vy += 0.98*0.5;
+            if (this.y > SC_H+64) {
+                this.remove();
+            }
+        };
+    },
+});
+jsstg.enemyData["waru2"] = jsstg.enemyData.waru2;
+
 //メカひよこ１
 tm.define("jsstg.enemyData.mecha1", {
     superClass: "jsstg.Enemy",
