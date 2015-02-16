@@ -40,7 +40,7 @@ tm.define("jsstg.enemyData.waru1", {
 
     algorithm: function() {
         this.x -= 1;
-        this.y += Math.sin(this.time*0.1)*2;
+        this.y += Math.sin(this.time*0.1)*3;
     },
 
     dead: function() {
@@ -67,7 +67,7 @@ tm.define("jsstg.enemyData.waru1", {
 });
 jsstg.enemyData["waru1"] = jsstg.enemyData.waru1;
 
-//ワルひよこ１
+//ワルひよこ２
 tm.define("jsstg.enemyData.waru2", {
     superClass: "jsstg.Enemy",
 
@@ -96,9 +96,25 @@ tm.define("jsstg.enemyData.waru2", {
             .addChildTo(this)
             .setScale(2)
             .gotoAndPlay("fly");
+
+        this.phase = 0;
+        this.vy = 1;
+        if (this.y > SC_H*0.5) this.vy = -1;
     },
 
     algorithm: function() {
+        if (this.phase == 0) {
+            this.x -= 2;
+            if (this.x < SC_W*0.6) this.phase++;
+        }
+        if (this.phase == 1) {
+            this.y += this.vy*2;
+            if (this.vy ==  1 && this.y > SC_W*0.7 ||
+                this.vy == -1 && this.y < SC_W*0.3) this.phase++;
+        }
+        if (this.phase == 2) {
+            this.x -= 2;
+        }
     },
 
     dead: function() {

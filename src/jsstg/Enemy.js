@@ -87,10 +87,12 @@ tm.define("jsstg.Enemy", {
         }
 
         //進行方向を向く
-        if (this.x < this.beforeX) {
-            this.scaleX = 1;
-        } else {
-            this.scaleX = -1;
+        if (this.x != this.beforeX) {
+            if (this.x > this.beforeX) {
+                this.scaleX = -1;
+            } else {
+                this.scaleX = 1;
+            }
         }
 
         //無敵時処理
