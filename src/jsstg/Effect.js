@@ -27,6 +27,25 @@ tm.define("jsstg.Effect.Explode", {
     },
 });
 
+//爆発２
+tm.define("jsstg.Effect.Explode2", {
+    superClass: "tm.display.AnimationSprite",
+    layer: LAYER_EFFECT_UPPER,
+
+    image: null,
+    isEffect: true,
+    isUpper: true,
+
+    init: function() {
+        this.superInit(jsstg.SpriteSheet.Explode2, 32, 48);
+        this.setScale(2);
+        this.gotoAndPlay("explode");
+    },
+    onanimationend: function() {
+        this.remove();
+    },
+});
+
 //敵出現ワーニング
 tm.define("jsstg.Effect.Warning", {
     superClass: "tm.display.OutlineLabel",

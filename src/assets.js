@@ -15,6 +15,7 @@ jsstg.assets = {
     "mecha":    "assets/hiyoco_mecha_full.png",
     "egg":      "assets/hiyoco_egg.png",
     "explode":  "assets/explode.png",
+    "explode2": "assets/explode2.png",
     "cloud1":   "assets/cloud1.png", 
     "cloud2":   "assets/cloud2.png", 
     "bg":       "assets/bg.png",
