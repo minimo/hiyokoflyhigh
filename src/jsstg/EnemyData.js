@@ -56,10 +56,11 @@ tm.define("jsstg.enemyData.waru1", {
         sp.vy = -10;
         sp.layer = LAYER_EFFECT_LOWER;
         sp.update = function() {
+            this.rotation+=10;
             this.x += 1;
             this.y += this.vy;
             this.vy += 0.98*0.5;
-            if (this.y > SC_H+64) {
+            if (this.y > SC_H*0.9) {
                 this.remove();
             }
         };
@@ -130,6 +131,7 @@ tm.define("jsstg.enemyData.waru2", {
         sp.vy = -10;
         sp.layer = LAYER_EFFECT_LOWER;
         sp.update = function() {
+            this.rotation+=10;
             this.x += 1;
             this.y += this.vy;
             this.vy += 0.98*0.5;
@@ -182,6 +184,7 @@ tm.define("jsstg.enemyData.mecha1", {
         this.isDead = true;
         this.remove();
 
+        var that = this;
         var sp = tm.display.Sprite("mecha", 32, 32)
             .addChildTo(this.parentScene)
             .setPosition(this.x, this.y)
@@ -190,11 +193,15 @@ tm.define("jsstg.enemyData.mecha1", {
         sp.vy = -10;
         sp.layer = LAYER_EFFECT_LOWER;
         sp.update = function() {
+            this.rotation+=10;
             this.x += 1;
             this.y += this.vy;
             this.vy += 0.98*0.5;
-            if (this.y > SC_H+64) {
+            if (this.y > SC_H*0.9) {
                 this.remove();
+                jsstg.Effect.Explode2()
+                    .addChildTo(that.parentScene)
+                    .setPosition(this.x, this.y-16);
             }
         };
     },
