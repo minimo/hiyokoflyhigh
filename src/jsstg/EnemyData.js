@@ -27,11 +27,9 @@ tm.define("jsstg.enemyData.waru1", {
     //表示レイヤー番号
     layer: LAYER_OBJECT,
 
-    init: function(x, y) {
-        this.superInit(x, y);
-    },
+    init: function(x, y, param) {
+        this.superInit(x, y, param);
 
-    setup: function(param) {
         this.sprite = tm.display.AnimationSprite(jsstg.SpriteSheet.waru, 32, 32)
             .addChildTo(this)
             .setScale(2)
@@ -88,11 +86,9 @@ tm.define("jsstg.enemyData.waru2", {
     //表示レイヤー番号
     layer: LAYER_OBJECT,
 
-    init: function(x, y) {
-        this.superInit(x, y);
-    },
+    init: function(x, y, param) {
+        this.superInit(x, y, param);
 
-    setup: function(param) {
         this.sprite = tm.display.AnimationSprite(jsstg.SpriteSheet.waru, 32, 32)
             .addChildTo(this)
             .setScale(2)
@@ -109,9 +105,10 @@ tm.define("jsstg.enemyData.waru2", {
             if (this.x < SC_W*0.6) this.phase++;
         }
         if (this.phase == 1) {
+            this.x += 2;
             this.y += this.vy*2;
-            if (this.vy ==  1 && this.y > SC_W*0.7 ||
-                this.vy == -1 && this.y < SC_W*0.3) this.phase++;
+            if (this.vy ==  1 && this.y > SC_W*0.45 ||
+                this.vy == -1 && this.y < SC_W*0.55) this.phase++;
         }
         if (this.phase == 2) {
             this.x -= 2;
@@ -163,11 +160,9 @@ tm.define("jsstg.enemyData.mecha1", {
     //表示レイヤー番号
     layer: LAYER_OBJECT,
 
-    init: function(x, y) {
-        this.superInit(x, y);
-    },
+    init: function(x, y, param) {
+        this.superInit(x, y, param);
 
-    setup: function(param) {
         this.sprite = tm.display.AnimationSprite(jsstg.SpriteSheet.mecha, 32, 32)
             .addChildTo(this)
             .setScale(2)
