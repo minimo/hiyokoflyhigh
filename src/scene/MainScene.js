@@ -177,11 +177,13 @@ tm.define("jsstg.MainScene", {
         var dice = rand2(0, units.length);
         var unit = units[dice];
 
-        //ユニット情報に基づいてから敵キャラを投入
+        //ユニット情報に基づいて敵キャラを投入
         var len = unit.enemies.length;
         for (var i = 0; i < len; i++) {
             var e = unit.enemies[i];
-            this.enterEnemy(e.name, e.x, e.y);
+            e.param = e.param || {};
+            e.param.delay = e.delay;
+            this.enterEnemy(e.name, e.x, e.y, e.param);
         }
 
         //ワーニング表示処理
@@ -197,6 +199,7 @@ tm.define("jsstg.MainScene", {
     //敵単体の投入
     enterEnemy: function(name, x, y, param) {
         if (!jsstg.enemyData[name]) return null;
+        param = param || {};
         jsstg.enemyData[name](x,  y, param).addChildTo(this);
     },
 

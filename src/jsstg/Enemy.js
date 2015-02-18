@@ -25,6 +25,7 @@ tm.define("jsstg.Enemy", {
     isGround: false,    //地上フラグ
 
     mutekiTime: 0,
+    delayTime: 0,
 
     //キャラクタ情報
     name: null,
@@ -48,7 +49,10 @@ tm.define("jsstg.Enemy", {
         //当り判定設定
         this.boundingType = "rect";
 
-        this.setup(param);
+        //ディレイ設定
+        if (param.delay) {
+            this.delayTime = param.delay;
+        }
 
         this.time = 0;
     },
@@ -66,6 +70,11 @@ tm.define("jsstg.Enemy", {
 
     update: function() {
         if (this.isDead) return;
+        if (this.delayTime > 0) {
+            this.delayTime--;
+            return;
+        }
+
         this.algorithm();
         if (this.isOnScreen) {
             if (this.x < -100 || this.x > SC_W+100 || this.y < -100 || this.y > SC_H+100) {
