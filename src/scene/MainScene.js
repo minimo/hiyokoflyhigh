@@ -214,11 +214,16 @@ tm.define("jsstg.MainScene", {
         this.mouseON = true;
 
         this.player.jump();
+
+        if (e.pointing.x > SC_W*0.8) this.player.forward();
+        if (e.pointing.x < SC_W*0.2) this.player.back();
     },
 
     //タッチorクリック移動処理
     ontouchesmove: function(e) {
         if (this.touchID != e.ID) return;
+        if (e.pointing.x > SC_W*0.8) this.player.forward();
+        if (e.pointing.x < SC_W*0.2) this.player.back();
     },
 
     //タッチorクリック終了処理

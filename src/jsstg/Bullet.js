@@ -156,10 +156,20 @@ tm.define("jsstg.ShotBullet", {
 
         this.beforeX = this.x;
         this.beforeY = this.y;
+        this.time = 0;
     },
     update: function() {
         this.x += this.vx;
         this.y += this.vy;
+        if (this.time > 20 && this.power < 2) {
+            if (!this.isBounce) {
+                this.vx *= 0.95;
+                if (this.vx < 1) {
+                    this.remove();
+                    return;
+                }
+            }
+        }
 
         if (this.x<-20 || this.x>SC_W+20 || this.y<-20 || this.y>SC_H+20) this.remove();
 
@@ -182,6 +192,7 @@ tm.define("jsstg.ShotBullet", {
                 }
             }.bind(this));
         }
+        this.time++;
     },
 
     bounce: function() {

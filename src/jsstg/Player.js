@@ -32,6 +32,8 @@ tm.define("jsstg.Player", {
     velocityX: 0,
     velocityY: 0,
 
+    lineX: 0,
+
     parentScene: null,
 
     init: function() {
@@ -67,6 +69,20 @@ tm.define("jsstg.Player", {
         this.power+=1;
         if (this.power > 100) this.power = 100;
         this.time++;
+    },
+
+    //前進
+    forward: function() {
+        if (!this.control) return;
+        this.x+=2;
+        if (this.x > SC_W*0.6) this.x = SC_W*0.8;
+    },
+
+    //後退
+    back: function() {
+        if (!this.control) return;
+        this.x-=2;
+        if (this.x < SC_W*0.1) this.x = SC_W*0.1;
     },
     //ジャンプ！
     jump: function() {
