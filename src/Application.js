@@ -42,6 +42,19 @@ jsstg.Application = tm.createClass({
         });
 
         this.replaceScene(loadingScene);
+
+        //加速度センサー
+        window.addEventListener("devicemotion", function(e) {
+            // e.acceleration.x
+            // e.acceleration.y
+            // e.acceleration.z
+            // e.accelerationIncludingGravity.x
+            // e.accelerationIncludingGravity.y
+            // e.accelerationIncludingGravity.z
+            // e.rotationRate.alpha
+            // e.rotationRate.beta
+            // e.rotationRate.gamma
+        });
     },
 
     _onLoadAssets: function() {
