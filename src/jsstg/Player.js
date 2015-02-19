@@ -26,6 +26,7 @@ tm.define("jsstg.Player", {
     isDemo: false,      //デモンストレーションフラグ
 
     timeMuteki: 0,  //無敵フレーム残り時間
+    timeGround: 0,  //地上にいる時間
 
     power: 0,
 
@@ -53,6 +54,9 @@ tm.define("jsstg.Player", {
         if (!this.isGround) {
             this.y += this.velocityY;
             this.velocityY += GRAVITY/3;
+            this.timeGround = 0;
+        } else {
+            this.timeGround++;
         }
 
         if (this.y > SC_H*0.9) {
@@ -75,7 +79,7 @@ tm.define("jsstg.Player", {
     forward: function() {
         if (!this.control) return;
         this.x+=2;
-        if (this.x > SC_W*0.6) this.x = SC_W*0.8;
+        if (this.x > SC_W*0.6) this.x = SC_W*0.6;
     },
 
     //後退
@@ -96,6 +100,7 @@ tm.define("jsstg.Player", {
     damage: function() {
         this.control = false;
         this.isCollision = false;
+        this.isGround = false;
         this.isDead = true;
         this.velocityY = -5;
         this.gotoAndPlay("damage");
