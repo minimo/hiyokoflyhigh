@@ -132,6 +132,13 @@ tm.define("jsstg.MainScene", {
             this.enterEnemyUnit();
         }
 
+        //永久パターン防止キャラ
+        if (this.time > 60*30 && this.player.timeGround > 300) {
+            jsstg.Effect.Warning(0, SC_H*0.9).addChildTo(this);
+            this.enterEnemy("mecha$", SC_W*1.3, SC_H*0.9);
+            this.player.timeGround = 0;
+        }
+
         //ゲームオーバー判定
         if (this.isGameOver) {
             this.isGameOver = false;
@@ -189,7 +196,7 @@ tm.define("jsstg.MainScene", {
         //ワーニング表示処理
         if (unit.warn) {
             var warn = unit.warn;
-            jsstg.Effect.Warning(warn.directionm, warn.y).addChildTo(this);
+            jsstg.Effect.Warning(warn.direction, warn.y).addChildTo(this);
         }
 
         //次の敵投入時間
