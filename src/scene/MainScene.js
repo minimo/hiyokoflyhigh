@@ -122,6 +122,24 @@ tm.define("jsstg.MainScene", {
             .setPosition(20, SC_H*0.5+height*0.5)
             .setOrigin(0.5, 1.0);
 
+        //ＵＩ的な何か
+        var param = {
+            width: SC_W*0.2,
+            height: SC_H,
+            fillStyle: "rgba(0,0,0,0.1)",
+            strokeStyle: "rgba(0,0,0,0.1)",
+            lineWidth: 1
+        }
+        this.leftB = tm.display.RectangleShape(param)
+            .addChildTo(this)
+            .setPosition(SC_W*0.1, SC_H*0.5)
+            .setAlpha(0);
+        this.rightB = tm.display.RectangleShape(param)
+            .addChildTo(this)
+            .setPosition(SC_W*0.9, SC_H*0.5)
+            .setAlpha(0);
+
+
         this.startup();
     },
 
@@ -133,7 +151,7 @@ tm.define("jsstg.MainScene", {
         }
 
         //永久パターン防止キャラ
-        if (this.time > 60*30 && this.player.timeGround > 300) {
+        if (!this.player.isDead && this.time > 60*30 && this.player.timeGround > 300) {
             jsstg.Effect.Warning(0, SC_H*0.9).addChildTo(this);
             this.enterEnemy("mecha$", SC_W*1.3, SC_H*0.9);
             this.player.timeGround = 0;
@@ -222,8 +240,15 @@ tm.define("jsstg.MainScene", {
 
         this.player.jump();
 
-        if (e.pointing.x > SC_W*0.8) this.player.forward();
-        if (e.pointing.x < SC_W*0.2) this.player.back();
+        if (e.pointing.x > SC_W*0.8) {
+            this.player.forward();
+            this.rightB.tweener.clear().to({alpha:1}, 100);
+        }
+        if (e.pointing.x < SC_W*0.2) {
+            this.player.back();
+            this.leftB.tweener.clear().to({alpha:1}, 100);
+        }
+
     },
 
     //タッチorクリック移動処理
@@ -238,6 +263,8 @@ tm.define("jsstg.MainScene", {
         if (this.touchID != e.ID) return;
         this.touchID = -1;
         this.mouseON = false;
+        this.rightB.tweener.clear().to({alpha:0}, 100);
+        this.leftB.tweener.clear().to({alpha:0}, 100);
     },
 
     //addChildオーバーライド
