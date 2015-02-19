@@ -51,10 +51,10 @@ jsstg.enemyUnit = [
     time: 300,
     warn: { "y":SC_H*0.20, "reverse":0 },
     enemies: [
-        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay": 0 },
-        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay":20 },
-        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay":40 },
-        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay":60 },
+        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay":  0 },
+        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay": 40 },
+        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay": 80 },
+        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay":120 },
     ]
 },
 {
@@ -63,10 +63,10 @@ jsstg.enemyUnit = [
     time: 300,
     warn: { "y":SC_H*0.70, "reverse":0 },
     enemies: [
-        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay": 0 },
-        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay":20 },
-        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay":40 },
-        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay":60 },
+        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay":  0 },
+        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay": 40 },
+        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay": 80 },
+        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay":120 },
     ]
 },
 
