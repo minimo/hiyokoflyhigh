@@ -161,7 +161,7 @@ tm.define("jsstg.ShotBullet", {
     update: function() {
         this.x += this.vx;
         this.y += this.vy;
-        if (this.time > 20 && this.power < 2) {
+        if (this.time > 30 && this.power < 2) {
             if (!this.isBounce) {
                 this.vx *= 0.95;
                 if (this.vx < 1) {
