@@ -171,10 +171,23 @@ tm.define("jsstg.ShotBullet", {
             }
         }
 
-        if (this.x<-20 || this.x>SC_W+20 || this.y<-20 || this.y>SC_H+20) this.remove();
+        if (this.isBounce) this.vy += GRAVITY;
 
-        if (this.isBounce) {
-            this.vy += GRAVITY;
+        if (this.x<-20 || this.x>SC_W+20 || this.y<-20 || this.y>SC_H+20) {
+            if (this.numBounce > 2) {
+                //コンボ表示
+                var text = this.numBounce+"HIT COMBO!!";
+                var t = tm.display.OutlineLabel(text, 40)
+                    .addChildTo(this.parentScene)
+                    .setOrigin(0, 0.5)
+                    .setPosition(SC_W*1.1, SC_H*0.2);
+                t.tweener.clear()
+                    .move(SC_W*0.5, SC_H*0.2, 1000, "easeOutSine")
+                    .wait(1000)
+                    .moveBy(-SC_W*1.0, 0, 1000, "easeOutSine")
+                    .call(function(){this.remove();}.bind(t));
+            }
+            this.remove();
         }
 
         //敵との当り判定チェック
