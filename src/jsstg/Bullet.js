@@ -201,6 +201,7 @@ tm.define("jsstg.ShotBullet", {
                     a.damage(this.power, this.numBounce);
                     this.explode();
                     this.bounce();
+                    app.playSE("poko");
                     return;
                 }
             }.bind(this));

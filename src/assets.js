@@ -26,6 +26,7 @@ jsstg.assets = {
     //Sound Effect
     "damage":   "assets/se_maoudamashii_magical06.mp3",
     "piyo":     "assets/se_maoudamashii_voice_bird02.mp3",
+    "poko":     "assets/nc30529.wav", 
 
     //Font
     "scoreboard": "font/scoreboard.ttf",
