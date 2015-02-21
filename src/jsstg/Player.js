@@ -133,7 +133,7 @@ tm.define("jsstg.Egg", {
         this.superInit(jsstg.SpriteSheet.egg, 32, 32);
         this.setScale(2);
         this.scaleX *= -1;
-        this.tweener.move(SC_W*0.2, SC_H*0.9, 1500, "easeOutBounce")
+        this.tweener.move(SC_W*0.4, SC_H*0.9, 1500, "easeOutBounce")
             .call(function() {
                 this.gotoAndPlay("enter");
             }.bind(this));
