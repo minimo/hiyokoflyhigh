@@ -194,6 +194,7 @@ tm.define("jsstg.enemyData.mecha1", {
             this.vy += 0.98*0.5;
             if (this.y > SC_H*0.9) {
                 this.remove();
+                app.playSE("bomb");
                 jsstg.Effect.Explode2()
                     .addChildTo(that.parentScene)
                     .setPosition(this.x, this.y-16);
@@ -256,6 +257,7 @@ tm.define("jsstg.enemyData.mecha2", {
             this.vy += 0.98*0.5;
             if (this.y > SC_H*0.9) {
                 this.remove();
+                app.playSE("bomb");
                 jsstg.Effect.Explode2()
                     .addChildTo(that.parentScene)
                     .setPosition(this.x, this.y-16);
@@ -321,6 +323,7 @@ tm.define("jsstg.enemyData.mecha$", {
             this.vy += 0.98*0.5;
             if (this.y > SC_H*0.9) {
                 this.remove();
+                app.playSE("bomb");
                 jsstg.Effect.Explode2()
                     .addChildTo(that.parentScene)
                     .setPosition(this.x, this.y-16);
