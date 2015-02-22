@@ -58,7 +58,7 @@ tm.define("jsstg.enemyData.waru1", {
             this.x += 1;
             this.y += this.vy;
             this.vy += 0.98*0.5;
-            if (this.y > SC_H*0.9) {
+            if (this.y > SC_H+64) {
                 this.remove();
             }
         };
