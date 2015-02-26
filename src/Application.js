@@ -37,7 +37,7 @@ jsstg.Application = tm.createClass({
             bgColor: "black",
             nextScene: function() {
                 this._onLoadAssets();
-                return jsstg.MainScene();
+                return jsstg.TitleScene();
             }.bind(this),
         });
 
