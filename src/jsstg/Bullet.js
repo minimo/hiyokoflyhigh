@@ -116,6 +116,8 @@ tm.define("jsstg.ShotBullet", {
     isBounce: false,
     numBounce: 0,
 
+    isCollision: true,
+
     labelParam: {fontFamily: "azukiP", align: "center", baseline: "middle",outlineWidth: 1},
 
     init: function(power) {
@@ -191,20 +193,22 @@ tm.define("jsstg.ShotBullet", {
         }
 
         //敵との当り判定チェック
-        var s = [LAYER_OBJECT];
-        var len = s.length;
-        for (var i = 0; i < len; i++) {
-            var layer = this.parentScene.layers[s[i]];
-            layer.children.each(function(a) {
-                if (a === this.player) return;
-                if (this.parent && a.isCollision && !a.isMuteki && a.isHitElement(this)) {
-                    a.damage(this.power, this.numBounce);
-                    this.explode();
-                    this.bounce();
-                    app.playSE("poko");
-                    return;
-                }
-            }.bind(this));
+        if (this.isCollision) {
+            var s = [LAYER_OBJECT];
+            var len = s.length;
+            for (var i = 0; i < len; i++) {
+                var layer = this.parentScene.layers[s[i]];
+                layer.children.each(function(a) {
+                    if (a === this.player) return;
+                    if (this.parent && a.isCollision && !a.isMuteki && a.isHitElement(this)) {
+                        a.damage(this.power, this.numBounce);
+                        this.explode();
+                        this.bounce();
+                        app.playSE("poko");
+                        return;
+                    }
+                }.bind(this));
+            }
         }
         this.time++;
     },

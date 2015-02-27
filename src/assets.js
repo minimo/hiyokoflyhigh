@@ -19,6 +19,7 @@ jsstg.assets = {
     "cloud1":   "assets/cloud1.png", 
     "cloud2":   "assets/cloud2.png", 
     "bg":       "assets/bg.png",
+    "box":      "assets/box.png",
 
     //bgm
     "bgm":      "assets/game_maoudamashii_4_field04.mp3",

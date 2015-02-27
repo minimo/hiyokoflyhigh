@@ -89,7 +89,7 @@ jsstg.enemyUnit = [
 },
 {
     name: "mecha2-1",
-    rank: 0,
+    rank: 1,
     time: 10,
     warn: { "y":SC_H*0.50, "reverse":0 },
     enemies: [
@@ -98,13 +98,25 @@ jsstg.enemyUnit = [
 },
 {
     name: "mecha2-2",
-    rank: 0,
+    rank: 1,
     time: 300,
     warn: { "y":SC_H*0.50, "reverse":0 },
     enemies: [
         { "name": "mecha2",   "x":SC_W*1.3, "y":SC_H*0.40 },
         { "name": "mecha2",   "x":SC_W*1.1, "y":SC_H*0.50 },
         { "name": "mecha2",   "x":SC_W*1.3, "y":SC_H*0.60 },
+    ]
+},
+
+{
+    name: "box1",
+    rank: 0,
+    time: 300,
+    warn: { "y":SC_H*0.50, "reverse":0 },
+    enemies: [
+        { "name": "box",   "x":SC_W*1.3, "y":SC_H*0.40 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.50 },
+        { "name": "box",   "x":SC_W*1.3, "y":SC_H*0.60 },
     ]
 },
 
