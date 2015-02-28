@@ -75,6 +75,7 @@ tm.define("jsstg.Enemy", {
             return;
         }
 
+        this.x -= this.parentScene.bg.speed;
         this.algorithm();
         if (this.isOnScreen) {
             if (this.x < -100 || this.x > SC_W+100 || this.y < -100 || this.y > SC_H+100) {

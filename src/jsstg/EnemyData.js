@@ -37,7 +37,7 @@ tm.define("jsstg.enemyData.waru1", {
     },
 
     algorithm: function() {
-        this.x -= 1;
+        this.x -= 0;
         this.y += Math.sin(this.time*0.1)*3;
     },
 
@@ -101,17 +101,17 @@ tm.define("jsstg.enemyData.waru2", {
 
     algorithm: function() {
         if (this.phase == 0) {
-            this.x -= 2;
+            this.x -= 1;
             if (this.x < SC_W*0.6) this.phase++;
         }
         if (this.phase == 1) {
-            this.x += 2;
+            this.x += 3;
             this.y += this.vy*2;
             if (this.vy ==  1 && this.y > SC_W*0.45 ||
                 this.vy == -1 && this.y < SC_W*0.55) this.phase++;
         }
         if (this.phase == 2) {
-            this.x -= 2;
+            this.x -= 1;
         }
     },
 
@@ -297,7 +297,7 @@ tm.define("jsstg.enemyData.mecha$", {
     },
 
     algorithm: function() {
-        this.x -= 3;
+        this.x -= 2;
     },
 
     damage: function() {
@@ -345,7 +345,7 @@ tm.define("jsstg.enemyData.box", {
     height: 64,
 
     //耐久力
-    def: 999,
+    def: 99,
 
     //得点
     point: 0,
@@ -359,7 +359,8 @@ tm.define("jsstg.enemyData.box", {
         this.sprite = tm.display.Sprite("box", 64, 64).addChildTo(this);
     },
     algorithm: function() {
-        this.x -= 2;
+    },
+    damage: function() {
     },
 });
 jsstg.enemyData["box"] = jsstg.enemyData.box;
