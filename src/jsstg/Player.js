@@ -44,7 +44,7 @@ tm.define("jsstg.Player", {
 
         //当り判定設定
         this.boundingType = "circle";
-        this.radius = 6;
+        this.radius = 3;
         this.checkHierarchy = true;
 
         this.time = 0;
@@ -95,6 +95,10 @@ tm.define("jsstg.Player", {
         this.velocityY = -5;
         this.isGround = false;
         if (this.currentAnimationName != "fly") this.gotoAndPlay("fly");
+    },
+    //ちょっと浮くよ
+    hover: function() {
+        if (this.velocityY > 1) this.velocityY = 1;
     },
     //死亡演出
     damage: function() {

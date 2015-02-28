@@ -284,23 +284,12 @@ tm.define("jsstg.MainScene", {
         this.mouseON = true;
 
         this.player.jump();
-
-        if (e.pointing.x > SC_W*0.8) {
-            this.player.forward();
-            this.rightB.tweener.clear().to({alpha:1}, 100);
-        }
-        if (e.pointing.x < SC_W*0.2) {
-            this.player.back();
-            this.leftB.tweener.clear().to({alpha:1}, 100);
-        }
-
     },
 
     //タッチorクリック移動処理
     ontouchesmove: function(e) {
         if (this.touchID != e.ID) return;
-        if (e.pointing.x > SC_W*0.8) this.player.forward();
-        if (e.pointing.x < SC_W*0.2) this.player.back();
+        this.player.hover();
     },
 
     //タッチorクリック終了処理
@@ -308,8 +297,6 @@ tm.define("jsstg.MainScene", {
         if (this.touchID != e.ID) return;
         this.touchID = -1;
         this.mouseON = false;
-        this.rightB.tweener.clear().to({alpha:0}, 100);
-        this.leftB.tweener.clear().to({alpha:0}, 100);
     },
 
     //addChildオーバーライド
