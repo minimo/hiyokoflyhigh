@@ -198,6 +198,10 @@ tm.define("jsstg.MainScene", {
                 }.bind(lb));
         }
 
+        //スクリーンショット保存
+        var kb = appMain.keyboard;
+        if (kb.getKeyDown("s")) app.canvas.saveAsImage();
+
         this.time++;
     },
 
