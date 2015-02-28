@@ -62,7 +62,6 @@ jsstg.enemyUnit = [
         { "name": "waru1",   "x":SC_W*1.4, "y":SC_H*0.60 },
     ]
 },
-
 {
     name: "waru2-1",
     rank: 0,
@@ -70,9 +69,9 @@ jsstg.enemyUnit = [
     warn: { "y":SC_H*0.20, "reverse":0 },
     enemies: [
         { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay":  0 },
-        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay": 40 },
-        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay": 80 },
+        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay": 60 },
         { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay":120 },
+        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay":180 },
     ]
 },
 {
@@ -82,9 +81,9 @@ jsstg.enemyUnit = [
     warn: { "y":SC_H*0.70, "reverse":0 },
     enemies: [
         { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay":  0 },
-        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay": 40 },
-        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay": 80 },
+        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay": 60 },
         { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay":120 },
+        { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay":180 },
     ]
 },
 {
@@ -164,7 +163,7 @@ jsstg.obstacleUnit = [
 //rank1
 {
     name: "box-rank1-1",
-    rank: 1,
+    rank: 2,
     enemies: [
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
@@ -177,7 +176,7 @@ jsstg.obstacleUnit = [
 },
 {
     name: "box-rank1-2",
-    rank: 1,
+    rank: 2,
     enemies: [
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
@@ -190,7 +189,7 @@ jsstg.obstacleUnit = [
 },
 {
     name: "box-rank1-3",
-    rank: 1,
+    rank: 2,
     enemies: [
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
@@ -203,7 +202,7 @@ jsstg.obstacleUnit = [
 },
 {
     name: "box-rank1-4",
-    rank: 1,
+    rank: 2,
     enemies: [
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
@@ -216,7 +215,7 @@ jsstg.obstacleUnit = [
 
 {
     name: "box-rank1-4",
-    rank: 1,
+    rank: 2,
     enemies: [
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
