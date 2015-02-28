@@ -114,9 +114,26 @@ jsstg.enemyUnit = [
     time: 300,
     warn: { "y":SC_H*0.50, "reverse":0 },
     enemies: [
-        { "name": "box",   "x":SC_W*1.3, "y":SC_H*0.40 },
-        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.50 },
-        { "name": "box",   "x":SC_W*1.3, "y":SC_H*0.60 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.20 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.30 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.70 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.80 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.90 },
+    ]
+},
+{
+    name: "box2",
+    rank: 0,
+    time: 300,
+    warn: { "y":SC_H*0.50, "reverse":0 },
+    enemies: [
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.20 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.30 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.70 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.80 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.90 },
     ]
 },
 
