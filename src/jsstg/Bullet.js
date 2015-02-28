@@ -203,7 +203,13 @@ tm.define("jsstg.ShotBullet", {
                     if (this.parent && a.isCollision && !a.isMuteki && a.isHitElement(this)) {
                         a.damage(this.power, this.numBounce);
                         this.explode();
-                        this.bounce();
+                        if (a.def == 99) {
+                            this.isCollision = false;
+                            this.isBounce = true;
+                            this.vx = 0;
+                        } else {
+                            this.bounce();
+                        }
                         app.playSE("poko");
                         return;
                     }
