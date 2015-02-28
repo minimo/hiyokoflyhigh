@@ -10,7 +10,6 @@
 jsstg.enemyUnit = [
 
 {
-    name: "waru1-1",
     rank: 0,
     time: 300,
     warn: { "y":SC_H*0.50, "reverse":0 },
@@ -20,9 +19,7 @@ jsstg.enemyUnit = [
         { "name": "waru1",   "x":SC_W*1.3, "y":SC_H*0.60 },
         { "name": "waru1",   "x":SC_W*1.4, "y":SC_H*0.65 },
     ]
-},
-{
-    name: "waru1-2",
+},{
     rank: 0,
     time: 300,
     warn: { "y":SC_H*0.30, "reverse":0 },
@@ -32,38 +29,15 @@ jsstg.enemyUnit = [
         { "name": "waru1",   "x":SC_W*1.5, "y":SC_H*0.50 },
         { "name": "waru1",   "x":SC_W*1.7, "y":SC_H*0.60 },
     ]
-},
-{
-    name: "waru1-3",
+},{
     rank: 0,
     time: 300,
     warn: { "y":SC_H*0.40, "reverse":0 },
     enemies: [
         { "name": "waru1",   "x":SC_W*1.1, "y":SC_H*0.40 },
-        { "name": "waru1",   "x":SC_W*1.2, "y":SC_H*0.40 },
         { "name": "waru1",   "x":SC_W*1.3, "y":SC_H*0.40 },
-        { "name": "waru1",   "x":SC_W*1.4, "y":SC_H*0.40 },
     ]
-},
-{
-    name: "waru1-4",
-    rank: 1,
-    time: 300,
-    warn: { "y":SC_H*0.40, "reverse":0 },
-    enemies: [
-        { "name": "waru1",   "x":SC_W*1.1, "y":SC_H*0.40 },
-        { "name": "waru1",   "x":SC_W*1.2, "y":SC_H*0.40 },
-        { "name": "waru1",   "x":SC_W*1.3, "y":SC_H*0.40 },
-        { "name": "waru1",   "x":SC_W*1.4, "y":SC_H*0.40 },
-
-        { "name": "waru1",   "x":SC_W*1.1, "y":SC_H*0.60 },
-        { "name": "waru1",   "x":SC_W*1.2, "y":SC_H*0.60 },
-        { "name": "waru1",   "x":SC_W*1.3, "y":SC_H*0.60 },
-        { "name": "waru1",   "x":SC_W*1.4, "y":SC_H*0.60 },
-    ]
-},
-{
-    name: "waru2-1",
+},{
     rank: 0,
     time: 300,
     warn: { "y":SC_H*0.20, "reverse":0 },
@@ -73,9 +47,7 @@ jsstg.enemyUnit = [
         { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay":120 },
         { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.20, "delay":180 },
     ]
-},
-{
-    name: "waru2-2",
+},{
     rank: 0,
     time: 300,
     warn: { "y":SC_H*0.70, "reverse":0 },
@@ -86,9 +58,37 @@ jsstg.enemyUnit = [
         { "name": "waru2",   "x":SC_W*1.1, "y":SC_H*0.70, "delay":180 },
     ]
 },
+
 {
-    name: "mecha2-1",
+    rank: 1,
+    time: 300,
+    warn: { "y":SC_H*0.40, "reverse":0 },
+    enemies: [
+        { "name": "waru1",   "x":SC_W*1.1, "y":SC_H*0.40 },
+        { "name": "waru1",   "x":SC_W*1.3, "y":SC_H*0.30 },
+    ]
+},
+
+{
     rank: 3,
+    time: 10,
+    warn: { "y":SC_H*0.50, "reverse":0 },
+    enemies: [
+        { "name": "mecha1",   "x":SC_W*1.1, "y":SC_H*0.50 },
+    ]
+},{
+    rank: 3,
+    time: 300,
+    warn: { "y":SC_H*0.50, "reverse":0 },
+    enemies: [
+        { "name": "mecha1",   "x":SC_W*1.4, "y":SC_H*0.40 },
+        { "name": "mecha1",   "x":SC_W*1.1, "y":SC_H*0.50 },
+        { "name": "mecha1",   "x":SC_W*1.4, "y":SC_H*0.60 },
+    ]
+},
+
+{
+    rank: 5,
     time: 10,
     warn: { "y":SC_H*0.50, "reverse":0 },
     enemies: [
@@ -96,8 +96,7 @@ jsstg.enemyUnit = [
     ]
 },
 {
-    name: "mecha2-2",
-    rank: 3,
+    rank: 5,
     time: 300,
     warn: { "y":SC_H*0.50, "reverse":0 },
     enemies: [
