@@ -96,6 +96,15 @@ tm.define("jsstg.MainScene", {
             }
         };
 
+        //ランク表示
+        var rn = this.scoreLabel = tm.display.OutlineLabel("RANK", 40)
+            .addChildTo(this.systemBase)
+            .setPosition(10, 50)
+            .setParam(this.labelParam);
+        rn.update = function() {
+            this.text = "RANK "+that.rank;
+        };
+
         //パワーゲージ
         var color = "hsla({0}, 100%, 50%, 1.0)".format(300);
         var width = 30, height = 300;
