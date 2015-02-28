@@ -42,10 +42,10 @@ tm.define("jsstg.TitleScene", {
         this.t2 = tm.display.OutlineLabel("意外と高く", 60)
             .addChildTo(this)
             .setParam(param2)
-            .setPosition(SC_W*0.7, -SC_H)
+            .setPosition(SC_W*0.7, -SC_H*0.5)
             .setRotation(30);
        this.t2.tweener.clear()
-            .move(SC_W*0.7, SC_H*0.3, 4000,"easeOutBounce");
+            .move(SC_W*0.7, SC_H*0.3,3000,"easeOutBounce");
 
         this.t3 = tm.display.OutlineLabel("空を飛ぶ", 60)
             .addChildTo(this)
