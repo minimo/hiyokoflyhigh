@@ -27,6 +27,7 @@ tm.define("jsstg.MainScene", {
     time: 0,
     absTime: 0,
     enterTime: 300,
+    obstacleInterval: 600,
 
     //敵投入数と撃破数
     enemyCount: 0,
@@ -150,6 +151,11 @@ tm.define("jsstg.MainScene", {
             this.enterEnemyUnit();
         }
 
+        //障害物投入
+        if (this.time > 30 && this.time % this.obstacleInterval == 0) {
+            this.enterObstacle();
+        }
+
         //永久パターン防止キャラ
         if (!this.player.isDead && this.time > 60*30 && this.player.timeGround > 300) {
             jsstg.Effect.Warning(0, SC_H*0.9).addChildTo(this);
@@ -185,7 +191,7 @@ tm.define("jsstg.MainScene", {
     },
 
     //敵ユニット単位の投入
-    enterEnemyUnit: function(name) {
+    enterEnemyUnit: function() {
         //ランクに合うユニットを抽出
         var units = [];
         var len = jsstg.enemyUnit.length;
@@ -228,8 +234,32 @@ tm.define("jsstg.MainScene", {
         jsstg.enemyData[name](x,  y, param).addChildTo(this);
     },
 
-    //弾の消去
-    eraseBullet: function(target) {
+    //敵ユニット単位の投入
+    enterObstacle: function() {
+        //ランクに合うユニットを抽出
+        var units = [];
+        var len = jsstg.obstacleUnit.length;
+        for (var i = 0; i < len; i++ ){
+            var unit = jsstg.obstacleUnit[i];
+            if (unit.rank <= this.rank) units.push(unit);
+        }
+        if (units.length == 0) {
+            this.enterTime += 300;
+            return false;
+        }
+
+        //抽出したユニットからランダムに一個指定
+        var dice = rand2(0, units.length);
+        var unit = units[dice];
+
+        //ユニット情報に基づいて敵キャラを投入
+        var len = unit.enemies.length;
+        for (var i = 0; i < len; i++) {
+            var e = unit.enemies[i];
+            e.param = e.param || {};
+            e.param.delay = e.delay;
+            this.enterEnemy(e.name, e.x, e.y, e.param);
+        }
     },
 
     //タッチorクリック開始処理

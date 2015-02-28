@@ -108,12 +108,17 @@ jsstg.enemyUnit = [
     ]
 },
 
+];
+
+//障害物
+jsstg.obstacleUnit = [
 {
     name: "box1",
     rank: 0,
     time: 300,
     warn: { "y":SC_H*0.50, "reverse":0 },
     enemies: [
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.20 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.30 },
@@ -128,14 +133,16 @@ jsstg.enemyUnit = [
     time: 300,
     warn: { "y":SC_H*0.50, "reverse":0 },
     enemies: [
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
-        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.20 },
-        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.30 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.50 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.60 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.70 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.80 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.90 },
     ]
 },
 
-]
+];
+
 })();
