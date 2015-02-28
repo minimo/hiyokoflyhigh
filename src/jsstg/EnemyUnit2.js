@@ -56,8 +56,42 @@ jsstg.obstacleUnit = [
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.90 },
     ]
 },
+{
+    name: "box-rank0-3",
+    rank: 0,
+    enemies: [
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.20 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.30 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.80 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.90 },
+    ]
+},
 
-//rank1
+// rank 1
+{
+    name: "box-rank1-1",
+    rank: 1,
+    enemies: [
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.20 },
+        { "name": "box",   "x":SC_W*1.2, "y":SC_H*0.20 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.30 },
+        { "name": "box",   "x":SC_W*1.2, "y":SC_H*0.30 },
+    ]
+},
+{
+    name: "box-rank1-2",
+    rank: 1,
+    enemies: [
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.40 },
+        { "name": "box",   "x":SC_W*1.2, "y":SC_H*0.40 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.50 },
+        { "name": "box",   "x":SC_W*1.2, "y":SC_H*0.50 },
+    ]
+},
+
+//rank2
 {
     name: "box-rank1-1",
     rank: 2,
