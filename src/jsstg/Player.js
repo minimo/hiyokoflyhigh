@@ -7,11 +7,11 @@
 (function() {
 
 tm.define("jsstg.Player", {
-    superClass: "tm.display.AnimationSprite",
+    superClass: "tm.display.CanvasElement",
     layer: LAYER_PLAYER,
 
-    width: 2,
-    height: 2,
+    width: 16,
+    height: 16,
 
     //状態フラグ
     control: false, //操作可能フラグ
@@ -38,14 +38,12 @@ tm.define("jsstg.Player", {
     parentScene: null,
 
     init: function() {
-        this.superInit(jsstg.SpriteSheet.player, 32, 32);
+        this.superInit();
         this.setScale(2);
         this.scaleX *= -1;
 
-        //当り判定設定
-        this.boundingType = "circle";
-        this.radius = 3;
-        this.checkHierarchy = true;
+        //アニメーションスプライト
+        this.sprite = tm.display.AnimationSprite(jsstg.SpriteSheet.player, 32, 32).addChildTo(this);
 
         this.time = 0;
         return this;
@@ -63,12 +61,12 @@ tm.define("jsstg.Player", {
             this.y = SC_H*0.9;
             this.isGround = true;
             if (this.isDead) {
-                this.gotoAndPlay("dawn");
+                this.sprite.gotoAndPlay("dawn");
                 app.currentScene.bg.speed = 0;
             }
         }
         if (this.isGround && !this.isDead) {
-            if (this.currentAnimationName != "walk") this.gotoAndPlay("walk");
+            if (this.sprite.currentAnimationName != "walk") this.sprite.gotoAndPlay("walk");
         }
         this.power+=1;
         if (this.power > 100) this.power = 100;
@@ -94,7 +92,7 @@ tm.define("jsstg.Player", {
         this.enterShot();
         this.velocityY = -5;
         this.isGround = false;
-        if (this.currentAnimationName != "fly") this.gotoAndPlay("fly");
+        if (this.sprite.currentAnimationName != "fly") this.sprite.gotoAndPlay("fly");
     },
     //ちょっと浮くよ
     hover: function() {
@@ -107,7 +105,7 @@ tm.define("jsstg.Player", {
         this.isGround = false;
         this.isDead = true;
         this.velocityY = -5;
-        this.gotoAndPlay("damage");
+        this.sprite.gotoAndPlay("damage");
         this.parentScene.isGameOver = true;
         app.playSE("damage");
     },
@@ -146,9 +144,8 @@ tm.define("jsstg.Egg", {
     },
     onanimationend: function() {
         this.remove();
-        app.player
-            .gotoAndPlay("startup")
-            .setAlpha(1);
+        app.player.setAlpha(1);
+        app.player.sprite.gotoAndPlay("startup")
         app.player.control = true;
         app.player.isCollision = true;
         app.currentScene.bg.speed = 1;
