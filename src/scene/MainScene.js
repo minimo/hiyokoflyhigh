@@ -199,7 +199,7 @@ tm.define("jsstg.MainScene", {
         }
 
         //スクリーンショット保存
-        var kb = appMain.keyboard;
+        var kb = app.keyboard;
         if (kb.getKeyDown("s")) app.canvas.saveAsImage();
 
         this.time++;
