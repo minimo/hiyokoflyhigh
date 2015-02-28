@@ -25,7 +25,7 @@ jsstg.enemyUnit = [
     name: "waru1-2",
     rank: 0,
     time: 300,
-    warn: { "y":SC_H*0.50, "reverse":0 },
+    warn: { "y":SC_H*0.30, "reverse":0 },
     enemies: [
         { "name": "waru1",   "x":SC_W*1.1, "y":SC_H*0.30 },
         { "name": "waru1",   "x":SC_W*1.3, "y":SC_H*0.40 },
@@ -37,7 +37,7 @@ jsstg.enemyUnit = [
     name: "waru1-3",
     rank: 0,
     time: 300,
-    warn: { "y":SC_H*0.50, "reverse":0 },
+    warn: { "y":SC_H*0.40, "reverse":0 },
     enemies: [
         { "name": "waru1",   "x":SC_W*1.1, "y":SC_H*0.40 },
         { "name": "waru1",   "x":SC_W*1.2, "y":SC_H*0.40 },
@@ -49,7 +49,7 @@ jsstg.enemyUnit = [
     name: "waru1-4",
     rank: 1,
     time: 300,
-    warn: { "y":SC_H*0.50, "reverse":0 },
+    warn: { "y":SC_H*0.40, "reverse":0 },
     enemies: [
         { "name": "waru1",   "x":SC_W*1.1, "y":SC_H*0.40 },
         { "name": "waru1",   "x":SC_W*1.2, "y":SC_H*0.40 },
@@ -89,7 +89,7 @@ jsstg.enemyUnit = [
 },
 {
     name: "mecha2-1",
-    rank: 1,
+    rank: 3,
     time: 10,
     warn: { "y":SC_H*0.50, "reverse":0 },
     enemies: [
@@ -98,13 +98,13 @@ jsstg.enemyUnit = [
 },
 {
     name: "mecha2-2",
-    rank: 1,
+    rank: 3,
     time: 300,
     warn: { "y":SC_H*0.50, "reverse":0 },
     enemies: [
-        { "name": "mecha2",   "x":SC_W*1.3, "y":SC_H*0.40 },
+        { "name": "mecha2",   "x":SC_W*1.4, "y":SC_H*0.40 },
         { "name": "mecha2",   "x":SC_W*1.1, "y":SC_H*0.50 },
-        { "name": "mecha2",   "x":SC_W*1.3, "y":SC_H*0.60 },
+        { "name": "mecha2",   "x":SC_W*1.4, "y":SC_H*0.60 },
     ]
 },
 
@@ -113,10 +113,71 @@ jsstg.enemyUnit = [
 //障害物
 jsstg.obstacleUnit = [
 {
-    name: "box1",
+    name: "box-rank0-1",
     rank: 0,
-    time: 300,
-    warn: { "y":SC_H*0.50, "reverse":0 },
+    enemies: [
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.60 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.70 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.80 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.90 },
+    ]
+},
+{
+    name: "box-rank0-2",
+    rank: 0,
+    enemies: [
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.20 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.70 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.80 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.90 },
+    ]
+},
+{
+    name: "box-rank0-3",
+    rank: 0,
+    enemies: [
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.20 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.30 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.80 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.90 },
+    ]
+},
+{
+    name: "box-rank0-3",
+    rank: 0,
+    enemies: [
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.20 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.30 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.40 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.90 },
+    ]
+},
+
+//rank1
+{
+    name: "box-rank1-1",
+    rank: 1,
+    enemies: [
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.20 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.60 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.70 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.80 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.90 },
+    ]
+},
+{
+    name: "box-rank1-2",
+    rank: 1,
     enemies: [
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
@@ -128,21 +189,43 @@ jsstg.obstacleUnit = [
     ]
 },
 {
-    name: "box2",
-    rank: 0,
-    time: 300,
-    warn: { "y":SC_H*0.50, "reverse":0 },
+    name: "box-rank1-3",
+    rank: 1,
     enemies: [
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
-        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.50 },
-        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.60 },
-        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.70 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.20 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.30 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.40 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.80 },
         { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.90 },
     ]
 },
+{
+    name: "box-rank1-4",
+    rank: 1,
+    enemies: [
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.20 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.50 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.60 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.90 },
+    ]
+},
 
+{
+    name: "box-rank1-4",
+    rank: 1,
+    enemies: [
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.00 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.10 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.20 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.50 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.60 },
+        { "name": "box",   "x":SC_W*1.1, "y":SC_H*0.90 },
+    ]
+},
 ];
 
 })();

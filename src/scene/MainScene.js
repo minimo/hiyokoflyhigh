@@ -152,8 +152,15 @@ tm.define("jsstg.MainScene", {
         }
 
         //障害物投入
-        if (this.time > 30 && this.time % this.obstacleInterval == 0) {
+        var interval = this.obstacleInterval-this.rank*30;
+        if (interval < 300) interval = 300;
+        if (this.time > 30 && this.time % interval == 0) {
             this.enterObstacle();
+        }
+
+        //ゲームランク
+        if (this.time > 30 && this.time % 1200 == 0) {
+            this.rank++;
         }
 
         //永久パターン防止キャラ
@@ -244,7 +251,6 @@ tm.define("jsstg.MainScene", {
             if (unit.rank <= this.rank) units.push(unit);
         }
         if (units.length == 0) {
-            this.enterTime += 300;
             return false;
         }
 
