@@ -276,7 +276,7 @@ tm.define("jsstg.enemyData.mecha3", {
             .gotoAndPlay("fly");
 
         //破壊パターンを同機種からコピー
-        this.dead = jsstg.enemyData["mecha3"].dead;
+        this.dead = jsstg.enemyData["mecha1"].dead;
 
         this.phase = 0;
         this.vy = 1;
@@ -286,17 +286,17 @@ tm.define("jsstg.enemyData.mecha3", {
     algorithm: function() {
         if (this.phase % 2 == 0) {
             this.x -= 1;
-            if (this.x < SC_W*(1-this.phase*0.2)) this.phase++;
+            if (this.x < SC_W*(1-(this.phase+1)*0.1)) this.phase++;
         } else {
-            this.x += 3;
+            this.x += 1;
             this.y += this.vy*2;
             if (this.y < SC_H*0.5) {
-                if (this.vy == 1 && this.y > SC_H*0.4 || this.vy == 0 && this.y < SC_H*0.2) {
+                if (this.vy == 1 && this.y > SC_H*0.4 || this.vy == -1 && this.y < SC_H*0.2) {
                     this.phase++;
                     this.vy *= -1;
                 }
             } else {
-                if (this.vy == 1 && this.y > SC_H*0.8 || this.vy == 0 && this.y < SC_H*0.6) {
+                if (this.vy == 1 && this.y > SC_H*0.8 || this.vy == -1 && this.y < SC_H*0.6) {
                     this.phase++;
                     this.vy *= -1;
                 }
