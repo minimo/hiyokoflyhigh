@@ -97,7 +97,7 @@ tm.define("jsstg.MainScene", {
         };
 
         //ランク表示
-        var rn = this.scoreLabel = tm.display.OutlineLabel("RANK", 40)
+        var rn = this.rankLabel = tm.display.OutlineLabel("RANK", 40)
             .addChildTo(this.systemBase)
             .setPosition(10, 50)
             .setParam(this.labelParam);
