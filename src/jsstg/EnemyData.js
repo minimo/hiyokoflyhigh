@@ -247,6 +247,65 @@ tm.define("jsstg.enemyData.mecha2", {
 });
 jsstg.enemyData["mecha2"] = jsstg.enemyData.mecha2;
 
+//メカひよこ３（矩形飛び）
+tm.define("jsstg.enemyData.mecha3", {
+    superClass: "jsstg.Enemy",
+
+    //使用弾幕パターン
+    bulletPattern: "cube1",
+
+    //当り判定サイズ
+    width:  16,
+    height: 16,
+
+    //耐久力
+    def: 2,
+
+    //得点
+    point: 200,
+
+    //表示レイヤー番号
+    layer: LAYER_OBJECT,
+
+    init: function(x, y, param) {
+        this.superInit(x, y, param);
+
+        this.sprite = tm.display.AnimationSprite(jsstg.SpriteSheet.mecha, 32, 32)
+            .addChildTo(this)
+            .setScale(2)
+            .gotoAndPlay("fly");
+
+        //破壊パターンを同機種からコピー
+        this.dead = jsstg.enemyData["mecha3"].dead;
+
+        this.phase = 0;
+        this.vy = 1;
+        if (this.y > SC_H*0.5) this.vy = -1;
+    },
+
+    algorithm: function() {
+        if (this.phase % 2 == 0) {
+            this.x -= 1;
+            if (this.x < SC_W*(1-this.phase*0.2) this.phase++;
+        } else {
+            this.x += 3;
+            this.y += this.vy*2;
+            if (this.y < SC_H*0.5) {
+                if (this.vy == 1 && this.y > SC_H*0.4 || this.vy == 0 && this.y < SC_H*0.2) {
+                    this.phase++;
+                    this.vy *= -1;
+                }
+            } else {
+                if (this.vy == 1 && this.y > SC_H*0.8 || this.vy == 0 && this.y < SC_H*0.6) {
+                    this.phase++;
+                    this.vy *= -1;
+                }
+            }
+        }
+    },
+});
+jsstg.enemyData["mecha3"] = jsstg.enemyData.mecha3;
+
 //メカひよこ（地上）
 tm.define("jsstg.enemyData.mecha$", {
     superClass: "jsstg.Enemy",
