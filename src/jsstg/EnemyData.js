@@ -40,29 +40,6 @@ tm.define("jsstg.enemyData.waru1", {
         this.x -= 0;
         this.y += Math.sin(this.time*0.1)*3;
     },
-
-    dead: function() {
-        this.isCollision = false;
-        this.isDead = true;
-        this.remove();
-
-        var sp = tm.display.Sprite("waru", 32, 32)
-            .addChildTo(this.parentScene)
-            .setPosition(this.x, this.y)
-            .setScale(2)
-            .setFrameIndex(4);
-        sp.vy = -10;
-        sp.layer = LAYER_EFFECT_LOWER;
-        sp.update = function() {
-            this.rotation+=10;
-            this.x += 1;
-            this.y += this.vy;
-            this.vy += 0.98*0.5;
-            if (this.y > SC_H+64) {
-                this.remove();
-            }
-        };
-    },
 });
 jsstg.enemyData["waru1"] = jsstg.enemyData.waru1;
 
@@ -114,29 +91,6 @@ tm.define("jsstg.enemyData.waru2", {
             this.x -= 1;
         }
     },
-
-    dead: function() {
-        this.isCollision = false;
-        this.isDead = true;
-        this.remove();
-
-        var sp = tm.display.Sprite("waru", 32, 32)
-            .addChildTo(this.parentScene)
-            .setPosition(this.x, this.y)
-            .setScale(2)
-            .setFrameIndex(4);
-        sp.vy = -10;
-        sp.layer = LAYER_EFFECT_LOWER;
-        sp.update = function() {
-            this.rotation+=10;
-            this.x += 1;
-            this.y += this.vy;
-            this.vy += 0.98*0.5;
-            if (this.y > SC_H+64) {
-                this.remove();
-            }
-        };
-    },
 });
 jsstg.enemyData["waru2"] = jsstg.enemyData.waru2;
 
@@ -187,29 +141,6 @@ tm.define("jsstg.enemyData.waru3", {
         if (this.phase == 2) {
             this.x -= 1;
         }
-    },
-
-    dead: function() {
-        this.isCollision = false;
-        this.isDead = true;
-        this.remove();
-
-        var sp = tm.display.Sprite("waru", 32, 32)
-            .addChildTo(this.parentScene)
-            .setPosition(this.x, this.y)
-            .setScale(2)
-            .setFrameIndex(4);
-        sp.vy = -10;
-        sp.layer = LAYER_EFFECT_LOWER;
-        sp.update = function() {
-            this.rotation+=10;
-            this.x += 1;
-            this.y += this.vy;
-            this.vy += 0.98*0.5;
-            if (this.y > SC_H+64) {
-                this.remove();
-            }
-        };
     },
 });
 jsstg.enemyData["waru3"] = jsstg.enemyData.waru3;
@@ -305,38 +236,13 @@ tm.define("jsstg.enemyData.mecha2", {
             .addChildTo(this)
             .setScale(2)
             .gotoAndPlay("fly");
+
+        //破壊パターンを同機種からコピー
+        this.dead = jsstg.enemyData["mecha1"].dead;
     },
 
     algorithm: function() {
         this.x -= 2;
-    },
-
-    dead: function() {
-        this.isCollision = false;
-        this.isDead = true;
-        this.remove();
-
-        var that = this;
-        var sp = tm.display.Sprite("mecha", 32, 32)
-            .addChildTo(this.parentScene)
-            .setPosition(this.x, this.y)
-            .setScale(2)
-            .setFrameIndex(4);
-        sp.vy = -10;
-        sp.layer = LAYER_EFFECT_LOWER;
-        sp.update = function() {
-            this.rotation+=10;
-            this.x += 1;
-            this.y += this.vy;
-            this.vy += 0.98*0.5;
-            if (this.y > SC_H*0.9) {
-                this.remove();
-                app.playSE("bomb");
-                jsstg.Effect.Explode2()
-                    .addChildTo(that.parentScene)
-                    .setPosition(this.x, this.y-16);
-            }
-        };
     },
 });
 jsstg.enemyData["mecha2"] = jsstg.enemyData.mecha2;

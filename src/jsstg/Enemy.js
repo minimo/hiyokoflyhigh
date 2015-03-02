@@ -158,17 +158,24 @@ tm.define("jsstg.Enemy", {
     dead: function() {
         this.isCollision = false;
         this.isDead = true;
-        this.tweener.clear();
+        this.remove();
 
-        this.on("enterframe", function() {
-            this.alpha *= 0.9;
-            if (this.alpha < 0.02) this.remove();
-        }.bind(this));
-
-        var area = this.width*this.height;
-        if (area < 1025) {
-        } else {
-        }
+        var sp = tm.display.Sprite("waru", 32, 32)
+            .addChildTo(this.parentScene)
+            .setPosition(this.x, this.y)
+            .setScale(2)
+            .setFrameIndex(4);
+        sp.vy = -10;
+        sp.layer = LAYER_EFFECT_LOWER;
+        sp.update = function() {
+            this.rotation+=10;
+            this.x += 1;
+            this.y += this.vy;
+            this.vy += 0.98*0.5;
+            if (this.y > SC_H+64) {
+                this.remove();
+            }
+        };
     },
 
     //親機のセット
