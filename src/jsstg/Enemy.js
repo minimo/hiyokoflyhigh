@@ -136,7 +136,9 @@ tm.define("jsstg.Enemy", {
 
             //スコア加算
             bounce++;
-            var point = this.point * bounce;
+            var m = 1;
+            for (var i = 0; i < bounce-1; i++)m*=2;
+            var point = this.point * m;
             this.parentScene.score += point;
 
             //得点表示
