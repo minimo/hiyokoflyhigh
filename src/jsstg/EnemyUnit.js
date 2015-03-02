@@ -60,12 +60,34 @@ jsstg.enemyUnit = [
 },
 
 {
-    rank: 1,
+    rank: 0,
     time: 300,
     warn: { "y":SC_H*0.40, "reverse":0 },
     enemies: [
         { "name": "waru1",   "x":SC_W*1.1, "y":SC_H*0.40 },
         { "name": "waru1",   "x":SC_W*1.3, "y":SC_H*0.30 },
+    ]
+},
+
+{
+    rank: 2,
+    time: 300,
+    warn: { "y":SC_H*0.20, "reverse":1 },
+    enemies: [
+        { "name": "waru3",   "x":-SC_W*0.2, "y":SC_H*0.20, "delay": 30 },
+        { "name": "waru3",   "x":-SC_W*0.2, "y":SC_H*0.20, "delay": 60 },
+        { "name": "waru3",   "x":-SC_W*0.2, "y":SC_H*0.20, "delay": 90 },
+        { "name": "waru3",   "x":-SC_W*0.2, "y":SC_H*0.20, "delay":120 },
+    ]
+},{
+    rank: 2,
+    time: 300,
+    warn: { "y":SC_H*0.80, "reverse":1 },
+    enemies: [
+        { "name": "waru3",   "x":-SC_W*0.2, "y":SC_H*0.80, "delay": 30 },
+        { "name": "waru3",   "x":-SC_W*0.2, "y":SC_H*0.80, "delay": 60 },
+        { "name": "waru3",   "x":-SC_W*0.2, "y":SC_H*0.80, "delay": 90 },
+        { "name": "waru3",   "x":-SC_W*0.2, "y":SC_H*0.80, "delay":120 },
     ]
 },
 

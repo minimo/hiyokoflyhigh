@@ -240,7 +240,7 @@ tm.define("jsstg.MainScene", {
         //ワーニング表示処理
         if (unit.warn) {
             var warn = unit.warn;
-            jsstg.Effect.Warning(warn.direction, warn.y).addChildTo(this);
+            jsstg.Effect.Warning(warn.reverse, warn.y).addChildTo(this);
         }
 
         //次の敵投入時間
@@ -254,7 +254,7 @@ tm.define("jsstg.MainScene", {
         jsstg.enemyData[name](x,  y, param).addChildTo(this);
     },
 
-    //敵ユニット単位の投入
+    //障害物の投入
     enterObstacle: function() {
         //ランクに合うユニットを抽出
         var units = [];
