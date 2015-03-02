@@ -286,7 +286,7 @@ tm.define("jsstg.enemyData.mecha3", {
     algorithm: function() {
         if (this.phase % 2 == 0) {
             this.x -= 1;
-            if (this.x < SC_W*(1-this.phase*0.2) this.phase++;
+            if (this.x < SC_W*(1-this.phase*0.2)) this.phase++;
         } else {
             this.x += 3;
             this.y += this.vy*2;
